@@ -70,6 +70,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F39B4DB3290F0A9200F84F4A /* Products */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -104,6 +105,37 @@
 				F39B4DA6290EF2C200F84F4A /* Info.plist */,
 			);
 			path = Plists;
+			sourceTree = "<group>";
+		};
+		F39B4DB3290F0A9200F84F4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F39B4DB6290F0B2700F84F4A /* View */,
+				F39B4DB5290F0B2100F84F4A /* Controller */,
+				F39B4DB4290F0B1A00F84F4A /* ViewModel */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		F39B4DB4290F0B1A00F84F4A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F39B4DB5290F0B2100F84F4A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F39B4DB6290F0B2700F84F4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
