@@ -60,13 +60,12 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
         addSubview(productNameLabel)
         productNameLabel.snp.makeConstraints { make in
             make.leading.equalTo(productImageView.snp.leading)
-            make.trailing.equalTo(productImageView.snp.trailing)
             make.bottom.equalTo(productImageView.snp.bottom)
         }
         
         addSubview(productPriceLabel)
         productPriceLabel.snp.makeConstraints { make in
-            make.leading.equalTo(productNameLabel.snp.trailing)
+            make.leading.equalTo(productNameLabel.snp.trailing).offset(10)
             make.trailing.equalToSuperview()
             make.top.equalTo(productNameLabel.snp.top)
             make.bottom.equalTo(productNameLabel.snp.bottom)

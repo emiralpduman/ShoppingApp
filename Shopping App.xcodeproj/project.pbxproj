@@ -14,7 +14,6 @@
 		F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4DBB290F156500F84F4A /* ProductsViewController.swift */; };
 		F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4DBD290F158100F84F4A /* ProductsViewModel.swift */; };
 		F39B4DC1290F1AAE00F84F4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F39B4DC0290F1AAE00F84F4A /* SnapKit */; };
-		F39B4DC3290F1AAE00F84F4A /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F39B4DC2290F1AAE00F84F4A /* SnapKit-Dynamic */; };
 		F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4DC42910061A00F84F4A /* ProductsCollectionViewCell.swift */; };
 		F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F39B4DC729100D3800F84F4A /* Kingfisher */; };
 		F39B4DCB291018E200F84F4A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4DCA291018E200F84F4A /* Product.swift */; };
@@ -40,7 +39,6 @@
 			files = (
 				F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */,
 				F39B4DC1290F1AAE00F84F4A /* SnapKit in Frameworks */,
-				F39B4DC3290F1AAE00F84F4A /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +183,6 @@
 			name = "Shopping App";
 			packageProductDependencies = (
 				F39B4DC0290F1AAE00F84F4A /* SnapKit */,
-				F39B4DC2290F1AAE00F84F4A /* SnapKit-Dynamic */,
 				F39B4DC729100D3800F84F4A /* Kingfisher */,
 			);
 			productName = "Shopping App";
@@ -486,11 +483,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		F39B4DC2290F1AAE00F84F4A /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 		F39B4DC729100D3800F84F4A /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
