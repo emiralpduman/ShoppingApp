@@ -58,8 +58,8 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
         addSubview(productImageView)
         productImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.equalToSuperview().inset(labelHorizontalInsetWRTImage/3)
+            make.trailing.equalToSuperview().inset(labelHorizontalInsetWRTImage/3)
             make.bottom.equalToSuperview()
         }
         
