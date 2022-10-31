@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductsView: UIView {
+final class ProductsView: UIView {
     
     //MARK: -Properties
     
@@ -23,6 +23,7 @@ class ProductsView: UIView {
         super.init(frame: frame)
         
         backgroundColor = .red
+        
         setupProductsCollectionView()
     }
     
