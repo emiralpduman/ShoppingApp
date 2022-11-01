@@ -42,11 +42,10 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
         let layer = CAGradientLayer()
         layer.startPoint = CGPoint(x: 0.5, y: 0.0)
         layer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        layer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+        layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         layer.locations = [0.0, 1.0]
         return layer
     }()
-    private lazy var gradientView = UIView()
     
     //MARK: - Initialization
     override init(frame: CGRect) {
@@ -77,27 +76,17 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
             make.bottom.equalTo(productNameLabel.snp.bottom)
         }
         
-        addSubview(gradientView)
-        gradientView.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-        }
-        
+        productImageView.layer.insertSublayer(gradientLayer, at: .zero)
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func draw(_ rect: CGRect) {
-        let layer = CAGradientLayer()
-        layer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        layer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        layer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
-        layer.locations = [0.0, 1.0]
-        gradientView.layer.addSublayer(layer)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = bounds
     }
     
     
