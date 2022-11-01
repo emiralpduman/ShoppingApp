@@ -69,6 +69,13 @@ class ProductDetailView: UIView {
         return stackView
     }()
     
+    private lazy var addToCartButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Add to Cart", for: .normal)
+        return button
+    }()
+
+    
     override init(frame: CGRect) {
         self.product = Product()
         super.init(frame: frame)
@@ -85,8 +92,14 @@ class ProductDetailView: UIView {
             make.top.equalTo(productImageView.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+        }
+        addSubview(addToCartButton)
+        addToCartButton.snp.makeConstraints() { make in
+            make.top.equalTo(productDetailsStackView.snp.bottom).offset(offset)
+            make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(bottomInset)
         }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -95,6 +108,7 @@ class ProductDetailView: UIView {
     
     // Drawing Constants
     private let inset: CGFloat = 10
+    private let offset: CGFloat = 10
     private let stackViewSpacing: CGFloat = 10
     private let bottomInset: CGFloat = 50
 }
