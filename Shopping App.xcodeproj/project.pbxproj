@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1E82911913C00602638 /* ProductDetailView.swift */; };
+		F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */; };
 		F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4D98290EF2C100F84F4A /* AppDelegate.swift */; };
 		F39B4DA2290EF2C200F84F4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39B4DA1290EF2C200F84F4A /* Assets.xcassets */; };
 		F39B4DA5290EF2C200F84F4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F39B4DA3290EF2C200F84F4A /* LaunchScreen.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F32DF1E82911913C00602638 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		F39B4D95290EF2C100F84F4A /* Shopping App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39B4D98290EF2C100F84F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F39B4DA1290EF2C200F84F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				F39B4DBB290F156500F84F4A /* ProductsViewController.swift */,
+				F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			children = (
 				F39B4DB9290F154E00F84F4A /* ProductsView.swift */,
 				F39B4DC42910061A00F84F4A /* ProductsCollectionViewCell.swift */,
+				F32DF1E82911913C00602638 /* ProductDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,9 +250,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
+				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
+				F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */,
 				F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */,
 				F39B4DCB291018E200F84F4A /* Product.swift in Sources */,
 			);

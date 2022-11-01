@@ -12,13 +12,13 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
     // MARK: - Drawing Constants
     let cornerRadius: CGFloat = 50
     let labelHorizontalInsetWRTImage: CGFloat = 40
-    let labelVerticalInsetWRTImage: CGFloat = 5
+    let labelVerticalInsetWRTImage: CGFloat = 10
     
     //MARK: - Properties
     var product: Product {
         didSet {
-            productImageView.kf.setImage(with: product.imageURL)
-            productNameLabel.text = product.name
+            productImageView.kf.setImage(with: URL(string: product.imageURL ))
+            productNameLabel.text = product.title
             productPriceLabel.text = String(product.price)
         }
     }
@@ -27,15 +27,18 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = cornerRadius
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
     private lazy var productNameLabel: UILabel = {
         let nameLabel = UILabel()
+        nameLabel.textColor = .white
         return nameLabel
     }()
     private lazy var productPriceLabel: UILabel = {
         let priceLabel = UILabel()
+        priceLabel.textColor = .white
         return priceLabel
     }()
     private lazy var gradientLayer: CAGradientLayer = {
@@ -76,8 +79,7 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
             make.bottom.equalTo(productNameLabel.snp.bottom)
         }
         
-        productImageView.layer.insertSublayer(gradientLayer, at: .zero)
-
+         productImageView.layer.insertSublayer(gradientLayer, at: .zero)
     }
     
     required init?(coder: NSCoder) {
@@ -88,8 +90,6 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         gradientLayer.frame = bounds
     }
-    
-    
 }
 
 
