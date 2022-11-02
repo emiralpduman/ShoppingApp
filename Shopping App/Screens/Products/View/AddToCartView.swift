@@ -9,7 +9,10 @@ import UIKit
 import SnapKit
 
 protocol AddToCartViewDelegate: AnyObject {
-    func addToCartView(_ view: AddToCartView, didTapStepper: UIStepper)
+    func addToCartView(_ view: AddToCartView, didTapQuantityStepper: UIStepper)
+    func addToCartView(_ view: AddToCartView, didTapAddButton: UIButton)
+    func didSwipeDown()
+
 }
 
 final class AddToCartView: UIView {
@@ -46,15 +49,39 @@ final class AddToCartView: UIView {
         return stackView
     }()
     
+    private lazy var addButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Add", for: .normal)
+        button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var addToCartStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [quantityStackView, addButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        return stackView
+    }()
+    
     // MARK: - Initilization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        let tap = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeDown))
+        tap.direction = .down
+        tap.numberOfTouchesRequired = 1
+        addGestureRecognizer(tap)
+        
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+        
         //Adding subviews
-        addSubview(quantityStackView)
-        quantityStackView.snp.makeConstraints() { make in
-            make.center.equalToSuperview()
+        addSubview(addToCartStackView)
+        addToCartStackView.snp.makeConstraints() { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-50)
         }
     }
     
@@ -65,7 +92,13 @@ final class AddToCartView: UIView {
     // MARK: - Delegate Methods
     
     @objc private func didTapQuantityStepper(_ sender: UIStepper) {
-        delegate?.addToCartView(self, didTapStepper: sender)
+        delegate?.addToCartView(self, didTapQuantityStepper: sender)
+    }
+    @objc private func didTapAddButton(_ sender: UIButton) {
+        delegate?.addToCartView(self, didTapAddButton: sender)
+    }
+    @objc private func didSwipeDown() {
+        delegate?.didSwipeDown()
     }
     
     //Drawing constants
