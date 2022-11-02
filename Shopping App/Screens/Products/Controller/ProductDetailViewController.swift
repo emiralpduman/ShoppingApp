@@ -12,6 +12,24 @@ final class ProductDetailViewController: UIViewController {
     // MARK: - Properties
     private var mainView = ProductDetailView()
     
+
+    
+    // MARK: - Initialization
+    init(product: Product) {
+        mainView.productImageView.kf.setImage(with: URL(string: product.imageURL))
+        mainView.productNameLabel.text = product.title
+        mainView.productPriceLabel.text = "\(product.price) TL"
+        mainView.productDescriptionLabel.text = product.description
+        mainView.productCategoryLabel.text = "Category: \(product.category)"
+        mainView.productRatingRateLabel.text = "Rating: \(product.rating.rate)"
+        mainView.productRatingCountLabel.text = "Rated by: \(product.rating.count) Users"
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +39,8 @@ final class ProductDetailViewController: UIViewController {
         view.backgroundColor = .white
         
         mainView.delegate = self
-        mainView.product = Product()
-        
-        
     }
+    
 }
 
 extension ProductDetailViewController: ProductDetailViewDelegate {

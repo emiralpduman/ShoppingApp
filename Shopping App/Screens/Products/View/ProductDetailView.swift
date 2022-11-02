@@ -17,43 +17,31 @@ final class ProductDetailView: UIView {
     // MARK: - Properties
     weak var delegate: ProductDetailViewDelegate?
     
-    var product: Product {
-        didSet {
-            productImageView.kf.setImage(with: URL(string: product.imageURL))
-            productNameLabel.text = product.title
-            productPriceLabel.text = "\(product.price) TL"
-            productDescriptionLabel.text = product.description
-            productCategoryLabel.text = "Category: \(product.category)"
-            productRatingRateLabel.text = "Rating: \(product.rating.rate)"
-            productRatingCountLabel.text = "Rated by: \(product.rating.count) Users"
-        }
-    }
-    
     override var alignmentRectInsets: UIEdgeInsets {
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
     
     // MARK: - Visual Elements
-    private lazy var productImageView: UIImageView = {
+    lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
-    private lazy var productNameLabel: UILabel = {
+    lazy var productNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
     }()
-    private lazy var productPriceLabel: UILabel = {
+    lazy var productPriceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return label
     }()
-    private var productDescriptionLabel = UILabel()
-    private var productCategoryLabel = UILabel()
-    private var productRatingRateLabel = UILabel()
-    private var productRatingCountLabel = UILabel()
+    var productDescriptionLabel = UILabel()
+    var productCategoryLabel = UILabel()
+    var productRatingRateLabel = UILabel()
+    var productRatingCountLabel = UILabel()
     
     private lazy var ratingStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [productRatingRateLabel,
@@ -96,7 +84,6 @@ final class ProductDetailView: UIView {
     // MARK: - Initilization
     
     override init(frame: CGRect) {
-        self.product = Product()
         super.init(frame: frame)
         
         //Adding subviews
