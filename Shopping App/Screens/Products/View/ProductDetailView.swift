@@ -8,9 +8,17 @@
 import UIKit
 import Kingfisher
 
-class ProductDetailView: UIView {
+protocol ProductDetailViewDelegate: AnyObject {
+    func productDetailView(_ view: ProductDetailView, didTapStepper: UIStepper)
+    func productDetailView(_ view: ProductDetailView, didTapAddToCartButton: UIButton)
+
+}
+
+final class ProductDetailView: UIView {
     
     // MARK: - Properties
+    weak var delegate: ProductDetailViewDelegate?
+    
     var product: Product {
         didSet {
             productImageView.kf.setImage(with: URL(string: product.imageURL))
@@ -20,6 +28,12 @@ class ProductDetailView: UIView {
             productCategoryLabel.text = "Category: \(product.category)"
             productRatingRateLabel.text = "Rating: \(product.rating.rate)"
             productRatingCountLabel.text = "Rated by: \(product.rating.count) Users"
+        }
+    }
+    
+    var quantity: Int = 0 {
+        didSet {
+            quantityLabel.text = "Amount: \(quantity)"
         }
     }
     
@@ -78,18 +92,19 @@ class ProductDetailView: UIView {
     private lazy var quantityStepper: UIStepper = {
         let stepper = UIStepper()
         stepper.minimumValue = 0
-        stepper.value = 1
+        stepper.addTarget(self, action: #selector(didTapQuantityStepper), for: .valueChanged)
         return stepper
     }()
     private lazy var quantityLabel: UILabel = {
        let label = UILabel()
-        label.text = "Quantity"
+        label.text = "Amount: \(quantity)"
         return label
     }()
     private lazy var quantityStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [quantityStepper, quantityLabel])
+        let stackView = UIStackView(arrangedSubviews: [quantityLabel, quantityStepper])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
+        stackView.alignment = .center
         stackView.spacing = stackViewSpacing
         return stackView
     }()
@@ -97,7 +112,8 @@ class ProductDetailView: UIView {
        let stackView = UIStackView(arrangedSubviews: [quantityStackView, addToCartButton])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = stackViewSpacing
+        stackView.alignment = .center
+        stackView.spacing = stackViewSpacing + CGFloat(bottomSpacing)
         return stackView
     }()
     
@@ -130,9 +146,15 @@ class ProductDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func didTapQuantityStepper(_ sender: UIStepper) {
+        delegate?.productDetailView(self, didTapStepper: sender)
+    }
+    
     // Drawing Constants
     private let inset: CGFloat = 10
     private let offset: CGFloat = 10
     private let stackViewSpacing: CGFloat = 10
     private let bottomInset: CGFloat = 50
+    private let bottomSpacing: CGFloat = 10
+
 }
