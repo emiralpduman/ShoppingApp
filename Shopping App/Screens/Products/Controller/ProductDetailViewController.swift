@@ -30,8 +30,32 @@ final class ProductDetailViewController: UIViewController {
 extension ProductDetailViewController: ProductDetailViewDelegate {
     func productDetailView(_ view: ProductDetailView, didTapAddToCartButton: UIButton) {
         let controller = AddToCartViewController()
-        present(controller, animated: true, completion: nil)
+        controller.presentationDelegate = self
+        controller.modalPresentationStyle = .custom
+        controller.transitioningDelegate = self
+        present(controller, animated: true)
 
+    }
+}
+
+extension ProductDetailViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        let presentationController = HalfSizePresentationController(presentedViewController: presented, presenting: presentingViewController)
+        return presentationController
+    }
+}
+
+class HalfSizePresentationController: UIPresentationController {
+    override var frameOfPresentedViewInContainerView: CGRect {
+        guard let bounds = containerView?.bounds else { return .zero }
+        let presentationHeight: CGFloat = 150
+        return CGRect(x: 0, y: bounds.height-presentationHeight, width: bounds.width, height: presentationHeight)
+    }
+}
+
+extension ProductDetailViewController: PresentationDelegate {
+    func didSwipeDown() {
+        self.presentedViewController?.dismiss(animated: true)
     }
 }
 

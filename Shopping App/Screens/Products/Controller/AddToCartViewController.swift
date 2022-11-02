@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol PresentationDelegate {
+    func didSwipeDown()
+}
+
 final class AddToCartViewController: UIViewController {
     
     // MARK: - Properties
     private var mainView = AddToCartView()
+    var presentationDelegate: PresentationDelegate?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -19,7 +24,6 @@ final class AddToCartViewController: UIViewController {
         title = "Add to Cart"
         view = mainView
         view.backgroundColor = .white
-
         
         mainView.delegate = self
     }
@@ -27,8 +31,18 @@ final class AddToCartViewController: UIViewController {
 }
 
 extension AddToCartViewController: AddToCartViewDelegate {
-    func addToCartView(_ view: AddToCartView, didTapStepper: UIStepper) {
-        view.quantity = Int(didTapStepper.value)
+    func didSwipeDown() {
+        if let delegate = presentationDelegate {
+            delegate.didSwipeDown()
+        }
+    }
+    
+    func addToCartView(_ view: AddToCartView, didTapQuantityStepper: UIStepper) {
+        view.quantity = Int(didTapQuantityStepper.value)
+    }
+    
+    func addToCartView(_ view: AddToCartView, didTapAddButton: UIButton) {
+        print("Added to cart")
     }
     
     
