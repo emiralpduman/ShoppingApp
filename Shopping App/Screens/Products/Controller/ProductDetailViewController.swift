@@ -29,13 +29,10 @@ final class ProductDetailViewController: UIViewController {
 
 extension ProductDetailViewController: ProductDetailViewDelegate {
     func productDetailView(_ view: ProductDetailView, didTapAddToCartButton: UIButton) {
-        <#code#>
-    }
-    
-    func productDetailView(_ view: ProductDetailView, didTapStepper: UIStepper) {
-        view.quantity = Int(didTapStepper.value)
-    }
+        let controller = AddToCartViewController()
+        present(controller, animated: true, completion: nil)
 
+    }
 }
 
 
