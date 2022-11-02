@@ -74,7 +74,32 @@ class ProductDetailView: UIView {
         button.setTitle("Add to Cart", for: .normal)
         return button
     }()
-
+    
+    private lazy var quantityStepper: UIStepper = {
+        let stepper = UIStepper()
+        stepper.minimumValue = 0
+        stepper.value = 1
+        return stepper
+    }()
+    private lazy var quantityLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Quantity"
+        return label
+    }()
+    private lazy var quantityStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [quantityStepper, quantityLabel])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = stackViewSpacing
+        return stackView
+    }()
+    private lazy var addToCartStackView: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [quantityStackView, addToCartButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = stackViewSpacing
+        return stackView
+    }()
     
     override init(frame: CGRect) {
         self.product = Product()
@@ -93,13 +118,12 @@ class ProductDetailView: UIView {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
-        addSubview(addToCartButton)
-        addToCartButton.snp.makeConstraints() { make in
+        addSubview(addToCartStackView)
+        addToCartStackView.snp.makeConstraints() { make in
             make.top.equalTo(productDetailsStackView.snp.bottom).offset(offset)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(bottomInset)
         }
-        
     }
     
     required init?(coder: NSCoder) {
