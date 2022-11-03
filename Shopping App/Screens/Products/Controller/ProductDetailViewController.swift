@@ -16,13 +16,21 @@ final class ProductDetailViewController: UIViewController {
     
     // MARK: - Initialization
     init(product: Product) {
-        mainView.productImageView.kf.setImage(with: URL(string: product.imageURL))
+        guard let image = product.image,
+              let price = product.price,
+              let category = product.category,
+              let rating = product.rating,
+              let ratingRate = rating.rate,
+              let ratingCount = rating.count else {
+            fatalError("Product information could not be retreived.")
+        }
+        mainView.productImageView.kf.setImage(with: URL(string: image))
         mainView.productNameLabel.text = product.title
-        mainView.productPriceLabel.text = "\(product.price) TL"
+        mainView.productPriceLabel.text = "\(price) TL"
         mainView.productDescriptionLabel.text = product.description
-        mainView.productCategoryLabel.text = "Category: \(product.category)"
-        mainView.productRatingRateLabel.text = "Rating: \(product.rating.rate)"
-        mainView.productRatingCountLabel.text = "Rated by: \(product.rating.count) Users"
+        mainView.productCategoryLabel.text = "Category: \(category)"
+        mainView.productRatingRateLabel.text = "Rating: \(ratingRate)"
+        mainView.productRatingCountLabel.text = "Rated by: \(ratingCount) Users"
         super.init(nibName: nil, bundle: nil)
     }
     

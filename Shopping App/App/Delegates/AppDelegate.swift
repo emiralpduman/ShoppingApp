@@ -10,14 +10,14 @@ import SnapKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var products: [Product] {
-        let productCount = 20
-        var collection: [Product] = []
-        for index in 0...productCount {
-            collection.append(Product(title: "Product\(index) "))
-        }
-        return collection
-    }
+//    var products: [Product] {
+//        let productCount = 20
+//        var collection: [Product] = []
+//        for index in 0...productCount {
+//            collection.append(Product(title: "Product\(index) "))
+//        }
+//        return collection
+//    }
     
     
     var window: UIWindow?
@@ -31,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupLandingWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let viewModel = ProductsViewModel(products: self.products)
+//        let viewModel = ProductsViewModel(products: self.products)
+        let viewModel = ProductsViewModel()
         let viewController = ProductsViewController(viewModel: viewModel)
                 
         let navigationController = UINavigationController(rootViewController: viewController)

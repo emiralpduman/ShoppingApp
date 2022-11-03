@@ -17,6 +17,7 @@ final class ProductsViewController: UIViewController {
     init(viewModel: ProductsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +36,8 @@ final class ProductsViewController: UIViewController {
 //ProductsCollectionView delegate conformance
 extension ProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.products.count
+
+        return viewModel.products.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,15 +45,26 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
             fatalError("ProductsCollectionViewCell was not found")
         }
         
+
         viewCell.product = viewModel.products[indexPath.row]
         return viewCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let detailVC = ProductDetailViewController(product: viewModel.products[indexPath.row])
         navigationController?.pushViewController(detailVC, animated: true)
         
     }
+}
+
+extension ProductsViewController: ProductsViewModelDelegate {
+    func didErrorOccur(_ error: Error) {
+        print(error.localizedDescription)
+    }
     
+    func didFetchProducts() {
+        mainView.productsCollectionView.reloadData()
+    }
     
 }
