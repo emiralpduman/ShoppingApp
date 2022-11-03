@@ -17,10 +17,12 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
     var product: Product? {
         didSet {
-            guard let product = product else { return }
-            productImageView.kf.setImage(with: URL(string: product.imageURL ))
+            guard let product = product, let image = product.image, let price = product.price else {
+                fatalError("Product information could not be received.")
+            }
+            productImageView.kf.setImage(with: URL(string: image ))
             productNameLabel.text = product.title
-            productPriceLabel.text = String(product.price)
+            productPriceLabel.text = String(price)
         }
     }
     
