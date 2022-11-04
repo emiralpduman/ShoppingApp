@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1E82911913C00602638 /* ProductDetailView.swift */; };
 		F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */; };
+		F34CC42129158271000128FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34CC42029158271000128FE /* GoogleService-Info.plist */; };
+		F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F34CC423291582E5000128FE /* FirebaseAuth */; };
+		F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC425291584D0000128FE /* AuthViewModel.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
@@ -35,6 +38,8 @@
 /* Begin PBXFileReference section */
 		F32DF1E82911913C00602638 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		F34CC42029158271000128FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F34CC425291584D0000128FE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */,
+				F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */,
 				F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */,
 				F375781F29152EFF0017B045 /* Realm in Frameworks */,
 				F375782129152EFF0017B045 /* RealmSwift in Frameworks */,
@@ -143,6 +149,7 @@
 		F375782D29153FC70017B045 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F34CC425291584D0000128FE /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				F39B4DA6290EF2C200F84F4A /* Info.plist */,
+				F34CC42029158271000128FE /* GoogleService-Info.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 				F39B4DC729100D3800F84F4A /* Kingfisher */,
 				F375781E29152EFF0017B045 /* Realm */,
 				F375782029152EFF0017B045 /* RealmSwift */,
+				F34CC423291582E5000128FE /* FirebaseAuth */,
 			);
 			productName = "Shopping App";
 			productReference = F39B4D95290EF2C100F84F4A /* Shopping App.app */;
@@ -321,6 +330,7 @@
 				F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F39B4DC629100D3800F84F4A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F39B4D96290EF2C100F84F4A /* Products */;
 			projectDirPath = "";
@@ -337,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3757829291537AB0017B045 /* products.json in Resources */,
+				F34CC42129158271000128FE /* GoogleService-Info.plist in Resources */,
 				F39B4DA5290EF2C200F84F4A /* LaunchScreen.storyboard in Resources */,
 				F39B4DA2290EF2C200F84F4A /* Assets.xcassets in Resources */,
 			);
@@ -361,6 +372,7 @@
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
 				F3757825291530070017B045 /* RatingEntity.swift in Sources */,
 				F3757808291445920017B045 /* Product.swift in Sources */,
+				F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */,
 				F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */,
 				F375781C29152E9C0017B045 /* RealmReacheable.swift in Sources */,
 				F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */,
@@ -575,6 +587,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -602,6 +622,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F34CC423291582E5000128FE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		F375781E29152EFF0017B045 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */;

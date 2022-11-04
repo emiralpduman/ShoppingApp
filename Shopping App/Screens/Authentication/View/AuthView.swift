@@ -8,33 +8,48 @@
 import UIKit
 
 protocol AuthViewDelegate: AnyObject {
-    func didChangeValueOf(_ sender: UISegmentedControl)}
+    func didValueChange(_ sender: UISegmentedControl)
+    func didButtonPressed(_ sender: UIButton)
+}
 
 final class AuthView: UIView {
     // MARK: - Properties
     weak var delegate: AuthViewDelegate?
-    var signingMode: SigningMode = .signIn
+    var signingMode: SigningMode = .signIn {
+        didSet {
+            switch signingMode {
+            case .signIn:
+                userNameTextField.isHidden = true
+                passwordRepeatTextField.isHidden = true
+                signButton.setTitle("Sign-In", for: .normal)
+            case .signUp:
+                userNameTextField.isHidden = false
+                passwordRepeatTextField.isHidden = false
+                signButton.setTitle("Sign-Up", for: .normal)
+            }
+        }
+    }
     
     
     // MARK: - Visual Elements
-    private lazy var userNameTextField: UITextField = {
+    lazy var userNameTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your user name"
         textfield.isHidden = true
         return textfield
     }()
-    private lazy var emailTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your e-mail"
         return textfield
     }()
-    private lazy var passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your password"
         textfield.isSecureTextEntry = true
         return textfield
     }()
-    private lazy var passwordRepeatTextField: UITextField = {
+    lazy var passwordRepeatTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your password again"
         textfield.isSecureTextEntry = true
@@ -43,7 +58,7 @@ final class AuthView: UIView {
     }()
     private lazy var signingTypeSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Sign In", "Sign Up"])
-        segmentedControl.selectedSegmentIndex = signingMode.rawValue
+        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(didSegmentedControlValueChange), for: .valueChanged)
         return segmentedControl
     }()
@@ -54,12 +69,17 @@ final class AuthView: UIView {
         stackView.spacing = defaultStackViewSpacing
         return stackView
     }()
+        
     private lazy var signButton: UIButton = {
         let button = UIButton(type: .system)
+        button.setTitle("Sign-In", for: .normal)
+        button.addTarget(self, action: #selector(didButtonTouchDown), for: .touchDown)
+        return button
         
     }()
+    
     private lazy var containerStackView: UIStackView = {
-       let stackView = UIStackView(arrangedSubviews: [signingTypeSegmentedControl, textFieldsStackView])
+       let stackView = UIStackView(arrangedSubviews: [signingTypeSegmentedControl, textFieldsStackView, signButton])
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.spacing = defaultStackViewSpacing
@@ -88,16 +108,13 @@ final class AuthView: UIView {
             fatalError("Singing mode rawValue returns no case")
         }
         signingMode = modeIndex
-        switch signingMode {
-        case .signIn:
-            userNameTextField.isHidden = true
-            passwordRepeatTextField.isHidden = true
-        case .signUp:
-            userNameTextField.isHidden = false
-            passwordRepeatTextField.isHidden = false
-        }
-        delegate?.didChangeValueOf(signingTypeSegmentedControl)
+        delegate?.didValueChange(signingTypeSegmentedControl)
     }
+    
+    @objc private func didButtonTouchDown() {
+        delegate?.didButtonPressed(signButton)
+    }
+    
     
     // MARK:  - Drawing Constants
     private let defaultStackViewSpacing: CGFloat = 20
