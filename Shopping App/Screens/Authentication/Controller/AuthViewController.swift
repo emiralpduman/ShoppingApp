@@ -7,10 +7,17 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+final class AuthViewController: UIViewController {
+    private var mainView = AuthView()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Sign-In"
+        view = mainView
+        
+        mainView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -26,4 +33,11 @@ class AuthViewController: UIViewController {
     }
     */
 
+}
+
+extension AuthViewController: AuthViewDelegate {
+    func didChangeValueOf(_ sender: UISegmentedControl) {
+        let selectedIndex = sender.selectedSegmentIndex
+        title = sender.titleForSegment(at: selectedIndex)
+    }
 }
