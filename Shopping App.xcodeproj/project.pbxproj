@@ -13,6 +13,9 @@
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
 		F3757808291445920017B045 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3757807291445920017B045 /* Product.swift */; };
+		F375781C29152E9C0017B045 /* RealmReacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375781B29152E9C0017B045 /* RealmReacheable.swift */; };
+		F375781F29152EFF0017B045 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F375781E29152EFF0017B045 /* Realm */; };
+		F375782129152EFF0017B045 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F375782029152EFF0017B045 /* RealmSwift */; };
 		F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4D98290EF2C100F84F4A /* AppDelegate.swift */; };
 		F39B4DA2290EF2C200F84F4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39B4DA1290EF2C200F84F4A /* Assets.xcassets */; };
 		F39B4DA5290EF2C200F84F4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F39B4DA3290EF2C200F84F4A /* LaunchScreen.storyboard */; };
@@ -31,6 +34,7 @@
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3757807291445920017B045 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		F375781B29152E9C0017B045 /* RealmReacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReacheable.swift; sourceTree = "<group>"; };
 		F39B4D95290EF2C100F84F4A /* Shopping App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39B4D98290EF2C100F84F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F39B4DA1290EF2C200F84F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 			files = (
 				F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */,
 				F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */,
+				F375781F29152EFF0017B045 /* Realm in Frameworks */,
+				F375782129152EFF0017B045 /* RealmSwift in Frameworks */,
 				F39B4DC1290F1AAE00F84F4A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +76,22 @@
 				F3757807291445920017B045 /* Product.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F375781929152D920017B045 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F375781A29152D950017B045 /* Protocols */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F375781A29152D950017B045 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F375781B29152E9C0017B045 /* RealmReacheable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F39B4D8C290EF2C100F84F4A = {
@@ -101,6 +123,7 @@
 		F39B4DAD290F036D00F84F4A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				F375781929152D920017B045 /* Core */,
 				F39B4DB2290F03BC00F84F4A /* Plists */,
 				F39B4DB1290F03AF00F84F4A /* Assets */,
 				F39B4DB0290F039F00F84F4A /* Views */,
@@ -208,6 +231,8 @@
 			packageProductDependencies = (
 				F39B4DC0290F1AAE00F84F4A /* SnapKit */,
 				F39B4DC729100D3800F84F4A /* Kingfisher */,
+				F375781E29152EFF0017B045 /* Realm */,
+				F375782029152EFF0017B045 /* RealmSwift */,
 			);
 			productName = "Shopping App";
 			productReference = F39B4D95290EF2C100F84F4A /* Shopping App.app */;
@@ -240,6 +265,7 @@
 			packageReferences = (
 				F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F39B4DC629100D3800F84F4A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = F39B4D96290EF2C100F84F4A /* Products */;
 			projectDirPath = "";
@@ -276,6 +302,7 @@
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
 				F3757808291445920017B045 /* Product.swift in Sources */,
 				F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */,
+				F375781C29152E9C0017B045 /* RealmReacheable.swift in Sources */,
 				F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +515,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.32.2;
+			};
+		};
 		F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -507,6 +542,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F375781E29152EFF0017B045 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		F375782029152EFF0017B045 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		F39B4DC0290F1AAE00F84F4A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */;
