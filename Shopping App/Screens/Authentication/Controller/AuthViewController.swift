@@ -37,7 +37,7 @@ extension AuthViewController: AuthViewDelegate {
                 fatalError("No text content")
             }
             if password1 == password2 {
-                viewModel.signUp(email: email, password: password1)
+                viewModel.signUp(email: email, password: password1, userName: userName)
             }
             else {
                 print("Passwords do not match")

@@ -12,6 +12,7 @@
 		F34CC42129158271000128FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34CC42029158271000128FE /* GoogleService-Info.plist */; };
 		F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F34CC423291582E5000128FE /* FirebaseAuth */; };
 		F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC425291584D0000128FE /* AuthViewModel.swift */; };
+		F34CC42929168A7E000128FE /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42829168A7E000128FE /* UserEntity.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
@@ -40,6 +41,7 @@
 		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		F34CC42029158271000128FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F34CC425291584D0000128FE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		F34CC42829168A7E000128FE /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F34CC42729168A75000128FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC42829168A7E000128FE /* UserEntity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F3757803291445270017B045 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		F375782A29153F7F0017B045 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				F34CC42729168A75000128FE /* Model */,
 				F375782D29153FC70017B045 /* ViewModel */,
 				F375782C29153FC40017B045 /* Controller */,
 				F375782B29153FC10017B045 /* View */,
@@ -367,6 +378,7 @@
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
 				F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
+				F34CC42929168A7E000128FE /* UserEntity.swift in Sources */,
 				F37578312915494A0017B045 /* AuthViewController.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,

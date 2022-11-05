@@ -7,9 +7,10 @@
 
 import Foundation
 import FirebaseAuth
+import RealmSwift
 
 
-final class AuthViewModel {
+final class AuthViewModel: RealmReachable {
     func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
@@ -22,7 +23,7 @@ final class AuthViewModel {
     }
     
     
-    func signUp(email: String, password: String) {
+    func signUp(email: String, password: String, userName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print(error)
@@ -30,6 +31,24 @@ final class AuthViewModel {
                 print("Sign-up is succesful")
             }
             
+            guard let uid = authResult?.user.uid else {
+                fatalError()
+            }
+            
+            let user = UserEntity()
+            user._id = uid
+            user.userName = userName
+            user.emailAddress = email
+            
+            do {
+                try self.realm.write {
+                    self.realm.add(user)
+                    print("User is created.")
+                }
+            } catch {
+                print("User cannot be created.")
+            }
+        
 
             
 //            let user = User(email: (authResult?.user.email)!)
