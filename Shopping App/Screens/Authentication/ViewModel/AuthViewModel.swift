@@ -14,7 +14,6 @@ protocol AuthViewModelDelegate {
     func didSignUpSuccesfully()
     func didSignInSuccesfully()
     func willRequestService()
-    func didRequestService()
 }
 
 
@@ -22,6 +21,7 @@ final class AuthViewModel: RealmReachable {
     var delegate: AuthViewModelDelegate?
     
     func signIn(email: String, password: String) {
+        delegate?.willRequestService()
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 self.delegate?.didErrorOccur(error: error)
@@ -33,6 +33,7 @@ final class AuthViewModel: RealmReachable {
      
     
     func signUp(email: String, password: String, userName: String) {
+        delegate?.willRequestService()
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 self.delegate?.didErrorOccur(error: error)
@@ -41,7 +42,7 @@ final class AuthViewModel: RealmReachable {
             }
             
             guard let uid = authResult?.user.uid else {
-                self.delegate?.didErrorOccur(error: AuthenticationError.noUid)
+                self.delegate?.didErrorOccur(error: AuthViewModelError.noUid)
                 return
             }
             
@@ -56,18 +57,18 @@ final class AuthViewModel: RealmReachable {
                     self.delegate?.didSignUpSuccesfully()
                 }
             } catch {
-                self.delegate?.didErrorOccur(error: AuthenticationError.cannotWriteToDb)
+                self.delegate?.didErrorOccur(error: AuthViewModelError.cannotWriteToDb)
             }
         }
     }
 }
 
-enum AuthenticationError: Error {
+enum AuthViewModelError: Error {
     case noUid
     case cannotWriteToDb
 }
 
-extension AuthenticationError: CustomStringConvertible {
+extension AuthViewModelError: CustomStringConvertible {
     var description: String {
         switch self {
         case .noUid:
@@ -76,6 +77,4 @@ extension AuthenticationError: CustomStringConvertible {
             return "New user could not be written to local database."
         }
     }
-    
-    
 }
