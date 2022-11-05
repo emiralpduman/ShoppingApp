@@ -45,18 +45,27 @@ extension AuthViewController: AuthViewDelegate {
         switch mainView.signingMode {
         case .signIn:
             guard let email = mainView.emailTextField.text, let password = mainView.passwordTextField.text else {
-                fatalError(AuthViewControllerError.emptyInputFields.description)
+                let alert = UIAlertController(title: "Error", message: AuthViewControllerError.emptyInputFields.description, preferredStyle: .alert)
+                alert.standardizeForAuth()
+                self.present(alert, animated: true)
+                return
             }
             viewModel.signIn(email: email, password: password)
         case .signUp:
             guard let email = mainView.emailTextField.text, let userName = mainView.userNameTextField.text, let password1 = mainView.passwordTextField.text, let password2 = mainView.passwordRepeatTextField.text else {
-                fatalError(AuthViewControllerError.emptyInputFields.description)
+                let alert = UIAlertController(title: "Error", message: AuthViewControllerError.emptyInputFields.description, preferredStyle: .alert)
+                alert.standardizeForAuth()
+                self.present(alert, animated: true)
+                return
             }
             if password1 == password2 {
                 viewModel.signUp(email: email, password: password1, userName: userName)
             }
             else {
-                fatalError(AuthViewControllerError.passwordsNoMatch.description)
+                let alert = UIAlertController(title: "Error", message: AuthViewControllerError.passwordsNoMatch.description, preferredStyle: .alert)
+                alert.standardizeForAuth()
+                self.present(alert, animated: true)
+                return
             }
             
         }
@@ -72,21 +81,31 @@ extension AuthViewController: AuthViewDelegate {
 extension AuthViewController: AuthViewModelDelegate {
     func didErrorOccur(error: Error) {
         isThereServiceRequest = false
+        
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.standardizeForAuth()
+        self.present(alert, animated: true)
     }
     
     func didSignUpSuccesfully() {
         isThereServiceRequest = false
+        
+        let alert = UIAlertController(title: "Success", message: "Signed up succesfully.", preferredStyle: .alert)
+        alert.standardizeForAuth()
+        self.present(alert, animated: true)
     }
     
     func didSignInSuccesfully() {
         isThereServiceRequest = false
+        
+        let alert = UIAlertController(title: "Success", message: "Signed in succesfully.", preferredStyle: .alert)
+        alert.standardizeForAuth()
+        self.present(alert, animated: true)
     }
     
     func willRequestService() {
         isThereServiceRequest = true
     }
-    
-    
 }
 
 enum AuthViewControllerError: Error {
@@ -105,5 +124,12 @@ extension AuthViewControllerError: CustomStringConvertible {
     }
 }
 
+
+
+private extension UIAlertController {
+    func standardizeForAuth() {
+        self.addAction(UIAlertAction(title: "OK", style: .default))
+    }
+}
 
 
