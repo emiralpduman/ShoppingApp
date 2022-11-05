@@ -13,6 +13,7 @@
 		F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F34CC423291582E5000128FE /* FirebaseAuth */; };
 		F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC425291584D0000128FE /* AuthViewModel.swift */; };
 		F34CC42929168A7E000128FE /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42829168A7E000128FE /* UserEntity.swift */; };
+		F34CC44029170DD8000128FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC43F29170DD8000128FE /* MainTabBarController.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
@@ -39,10 +40,10 @@
 /* Begin PBXFileReference section */
 		F32DF1E82911913C00602638 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
-
 		F34CC42029158271000128FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F34CC425291584D0000128FE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F34CC42829168A7E000128FE /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		F34CC43F29170DD8000128FE /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +88,22 @@
 				F34CC42829168A7E000128FE /* UserEntity.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F34CC43D29170DD8000128FE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC43E29170DD8000128FE /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F34CC43E29170DD8000128FE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC43F29170DD8000128FE /* MainTabBarController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F3757803291445270017B045 /* Frameworks */ = {
@@ -208,6 +225,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F34CC43D29170DD8000128FE /* Main */,
 				F375782A29153F7F0017B045 /* Authentication */,
 				F39B4DB3290F0A9200F84F4A /* Products */,
 			);
@@ -374,6 +392,7 @@
 			files = (
 				F375782F2915403F0017B045 /* AuthView.swift in Sources */,
 				F375782329152FFF0017B045 /* ProductEntity.swift in Sources */,
+				F34CC44029170DD8000128FE /* MainTabBarController.swift in Sources */,
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
