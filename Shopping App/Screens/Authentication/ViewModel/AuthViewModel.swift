@@ -9,30 +9,40 @@ import Foundation
 import FirebaseAuth
 import RealmSwift
 
+protocol AuthViewModelDelegate {
+    func didErrorOccur(error: Error)
+    func didSignUpSuccesfully()
+    func didSignInSuccesfully()
+    func willRequestService()
+    func didRequestService()
+}
+
 
 final class AuthViewModel: RealmReachable {
+    var delegate: AuthViewModelDelegate?
+    
     func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print(error)
+                self.delegate?.didErrorOccur(error: error)
             } else {
-                print("Sign-in is succesful")
+                self.delegate?.didSignInSuccesfully()
             }
         }
-        
     }
-    
+     
     
     func signUp(email: String, password: String, userName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                print(error)
+                self.delegate?.didErrorOccur(error: error)
             } else {
-                print("Sign-up is succesful")
+                self.delegate?.didSignUpSuccesfully()
             }
             
             guard let uid = authResult?.user.uid else {
-                fatalError()
+                self.delegate?.didErrorOccur(error: AuthenticationError.noUid)
+                return
             }
             
             let user = UserEntity()
@@ -43,35 +53,29 @@ final class AuthViewModel: RealmReachable {
             do {
                 try self.realm.write {
                     self.realm.add(user)
-                    print("User is created.")
+                    self.delegate?.didSignUpSuccesfully()
                 }
             } catch {
-                print("User cannot be created.")
+                self.delegate?.didErrorOccur(error: AuthenticationError.cannotWriteToDb)
             }
-        
-
-            
-//            let user = User(email: (authResult?.user.email)!)
-//
-//            do {
-//                guard let data = try user.dictionary,
-//                      let id = authResult?.user.uid else {
-//                    return
-//                }
-//
-//                self.defaults.set(id, forKey: "uid")
-//
-//                self.db.collection("users").document(id).setData(data) { error in
-//
-//                    if let error = error {
-//                        self.changeHandler?(.didErrorOccurred(error))
-//                    } else {
-//                        self.changeHandler?(.didSignUpSuccessful)
-//                    }
-//                }
-//            } catch {
-//                self.changeHandler?(.didErrorOccurred(error))
-//            }
         }
     }
+}
+
+enum AuthenticationError: Error {
+    case noUid
+    case cannotWriteToDb
+}
+
+extension AuthenticationError: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .noUid:
+            return "UID of new user could not be retreived from authentication server."
+        case .cannotWriteToDb:
+            return "New user could not be written to local database."
+        }
+    }
+    
+    
 }
