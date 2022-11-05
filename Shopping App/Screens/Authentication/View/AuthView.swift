@@ -86,8 +86,19 @@ final class AuthView: UIView {
         
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator: UIActivityIndicatorView
+        if #available(iOS 13, *) {
+            indicator = UIActivityIndicatorView(style: .large)
+        } else {
+            indicator = UIActivityIndicatorView(style: .gray)
+        }
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     private lazy var containerStackView: UIStackView = {
-       let stackView = UIStackView(arrangedSubviews: [signingTypeSegmentedControl, textFieldsStackView, signButton])
+       let stackView = UIStackView(arrangedSubviews: [signingTypeSegmentedControl, textFieldsStackView, activityIndicator, signButton])
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.spacing = defaultStackViewSpacing
@@ -98,7 +109,7 @@ final class AuthView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        
+                
         addSubview(containerStackView)
         containerStackView.snp.makeConstraints() { make in
             make.top.equalTo(self.safeAreaLayoutGuide)
