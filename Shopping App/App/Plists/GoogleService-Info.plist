@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>92158902049-g71abf5e7g5qeqndqrfaib1tomu70n31.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.92158902049-g71abf5e7g5qeqndqrfaib1tomu70n31</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD7r5V6HzXy5HJ14w6v1Yq3hdEPO2Qz4Ro</string>
+	<key>GCM_SENDER_ID</key>
+	<string>92158902049</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>duman.emiralp.Shopping-App</string>
+	<key>PROJECT_ID</key>
+	<string>shopping-app-63d41</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shopping-app-63d41.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:92158902049:ios:629c32ce6694533d578860</string>
+</dict>
+</plist>

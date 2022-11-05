@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1E82911913C00602638 /* ProductDetailView.swift */; };
 		F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */; };
-		F34CC43C291709EA000128FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC43B291709EA000128FE /* MainTabBarController.swift */; };
+		F34CC42129158271000128FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34CC42029158271000128FE /* GoogleService-Info.plist */; };
+		F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F34CC423291582E5000128FE /* FirebaseAuth */; };
+		F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC425291584D0000128FE /* AuthViewModel.swift */; };
+		F34CC42929168A7E000128FE /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42829168A7E000128FE /* UserEntity.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
@@ -20,6 +23,8 @@
 		F375782329152FFF0017B045 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375782229152FFF0017B045 /* ProductEntity.swift */; };
 		F3757825291530070017B045 /* RatingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3757824291530070017B045 /* RatingEntity.swift */; };
 		F3757829291537AB0017B045 /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F3757828291537AB0017B045 /* products.json */; };
+		F375782F2915403F0017B045 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375782E2915403F0017B045 /* AuthView.swift */; };
+		F37578312915494A0017B045 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37578302915494A0017B045 /* AuthViewController.swift */; };
 		F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4D98290EF2C100F84F4A /* AppDelegate.swift */; };
 		F39B4DA2290EF2C200F84F4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39B4DA1290EF2C200F84F4A /* Assets.xcassets */; };
 		F39B4DA5290EF2C200F84F4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F39B4DA3290EF2C200F84F4A /* LaunchScreen.storyboard */; };
@@ -34,7 +39,10 @@
 /* Begin PBXFileReference section */
 		F32DF1E82911913C00602638 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
-		F34CC43B291709EA000128FE /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+
+		F34CC42029158271000128FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F34CC425291584D0000128FE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		F34CC42829168A7E000128FE /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +51,8 @@
 		F375782229152FFF0017B045 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
 		F3757824291530070017B045 /* RatingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingEntity.swift; sourceTree = "<group>"; };
 		F3757828291537AB0017B045 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = products.json; path = ../../../../../Downloads/products.json; sourceTree = "<group>"; };
+		F375782E2915403F0017B045 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		F37578302915494A0017B045 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		F39B4D95290EF2C100F84F4A /* Shopping App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39B4D98290EF2C100F84F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F39B4DA1290EF2C200F84F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */,
+				F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */,
 				F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */,
 				F375781F29152EFF0017B045 /* Realm in Frameworks */,
 				F375782129152EFF0017B045 /* RealmSwift in Frameworks */,
@@ -70,20 +81,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F34CC439291709EA000128FE /* Main */ = {
+		F34CC42729168A75000128FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F34CC43A291709EA000128FE /* ViewController */,
+				F34CC42829168A7E000128FE /* UserEntity.swift */,
 			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		F34CC43A291709EA000128FE /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				F34CC43B291709EA000128FE /* MainTabBarController.swift */,
-			);
-			path = ViewController;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F3757803291445270017B045 /* Frameworks */ = {
@@ -128,11 +131,46 @@
 			path = "Mock Data";
 			sourceTree = "<group>";
 		};
+		F375782A29153F7F0017B045 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC42729168A75000128FE /* Model */,
+				F375782D29153FC70017B045 /* ViewModel */,
+				F375782C29153FC40017B045 /* Controller */,
+				F375782B29153FC10017B045 /* View */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F375782B29153FC10017B045 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F375782E2915403F0017B045 /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F375782C29153FC40017B045 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F37578302915494A0017B045 /* AuthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F375782D29153FC70017B045 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC425291584D0000128FE /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F39B4D8C290EF2C100F84F4A = {
 			isa = PBXGroup;
 			children = (
-				F37578272915378F0017B045 /* Mock Data */,
 				F39B4D97290EF2C100F84F4A /* Shopping App */,
+				F37578272915378F0017B045 /* Mock Data */,
 				F39B4D96290EF2C100F84F4A /* Products */,
 				F3757803291445270017B045 /* Frameworks */,
 			);
@@ -170,7 +208,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F34CC439291709EA000128FE /* Main */,
+				F375782A29153F7F0017B045 /* Authentication */,
 				F39B4DB3290F0A9200F84F4A /* Products */,
 			);
 			path = Screens;
@@ -204,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				F39B4DA6290EF2C200F84F4A /* Info.plist */,
+				F34CC42029158271000128FE /* GoogleService-Info.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -269,6 +308,7 @@
 				F39B4DC729100D3800F84F4A /* Kingfisher */,
 				F375781E29152EFF0017B045 /* Realm */,
 				F375782029152EFF0017B045 /* RealmSwift */,
+				F34CC423291582E5000128FE /* FirebaseAuth */,
 			);
 			productName = "Shopping App";
 			productReference = F39B4D95290EF2C100F84F4A /* Shopping App.app */;
@@ -302,6 +342,7 @@
 				F39B4DBF290F1AAE00F84F4A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F39B4DC629100D3800F84F4A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F39B4D96290EF2C100F84F4A /* Products */;
 			projectDirPath = "";
@@ -318,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3757829291537AB0017B045 /* products.json in Resources */,
+				F34CC42129158271000128FE /* GoogleService-Info.plist in Resources */,
 				F39B4DA5290EF2C200F84F4A /* LaunchScreen.storyboard in Resources */,
 				F39B4DA2290EF2C200F84F4A /* Assets.xcassets in Resources */,
 			);
@@ -330,17 +372,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F375782F2915403F0017B045 /* AuthView.swift in Sources */,
 				F375782329152FFF0017B045 /* ProductEntity.swift in Sources */,
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
 				F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
+				F34CC42929168A7E000128FE /* UserEntity.swift in Sources */,
+				F37578312915494A0017B045 /* AuthViewController.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
 				F3757825291530070017B045 /* RatingEntity.swift in Sources */,
 				F3757808291445920017B045 /* Product.swift in Sources */,
-				F34CC43C291709EA000128FE /* MainTabBarController.swift in Sources */,
+				F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */,
 				F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */,
 				F375781C29152E9C0017B045 /* RealmReacheable.swift in Sources */,
 				F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */,
@@ -555,6 +600,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -582,6 +635,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F34CC423291582E5000128FE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		F375781E29152EFF0017B045 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */;
