@@ -32,11 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupLandingWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
 //        let viewModel = ProductsViewModel(products: self.products)
-        let viewModel = ProductsViewModel()
-        let viewController = ProductsViewController(viewModel: viewModel)
+//        let viewModel = ProductsViewModel()
+        let viewController = MainTabBarController()
                 
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
+        window.rootViewController = viewController
         window.makeKeyAndVisible()
         self.window = window
     }

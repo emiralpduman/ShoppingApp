@@ -12,7 +12,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var productsNavigationViewControler: UINavigationController = {
+        let productsNavigationViewControler: UINavigationController = {
             let navCont = UINavigationController(rootViewController: ProductsViewController(viewModel: ProductsViewModel()))
             navCont.tabBarItem = UITabBarItem(title: navCont.title, image: UIImage(), tag: 0)
             return navCont
