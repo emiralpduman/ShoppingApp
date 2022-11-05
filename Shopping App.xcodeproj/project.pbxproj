@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1E82911913C00602638 /* ProductDetailView.swift */; };
 		F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */; };
+		F34CC42C2916F045000128FE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42B2916F045000128FE /* MainView.swift */; };
+		F34CC4332916F0CD000128FE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC4322916F0CD000128FE /* MainViewModel.swift */; };
+		F34CC4352916F125000128FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC4342916F125000128FE /* MainViewController.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
@@ -33,6 +36,9 @@
 /* Begin PBXFileReference section */
 		F32DF1E82911913C00602638 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		F34CC42B2916F045000128FE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F34CC4322916F0CD000128FE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F34CC4342916F125000128FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +74,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F34CC42A2916F030000128FE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC42F2916F06C000128FE /* ViewModel */,
+				F34CC42E2916F060000128FE /* ViewController */,
+				F34CC42D2916F054000128FE /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F34CC42D2916F054000128FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC42B2916F045000128FE /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F34CC42E2916F060000128FE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC4342916F125000128FE /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F34CC42F2916F06C000128FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F34CC4322916F0CD000128FE /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F3757803291445270017B045 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +192,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F34CC42A2916F030000128FE /* Main */,
 				F39B4DB3290F0A9200F84F4A /* Products */,
 			);
 			path = Screens;
@@ -312,10 +353,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F375782329152FFF0017B045 /* ProductEntity.swift in Sources */,
+				F34CC42C2916F045000128FE /* MainView.swift in Sources */,
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
+				F34CC4332916F0CD000128FE /* MainViewModel.swift in Sources */,
 				F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */,
+				F34CC4352916F125000128FE /* MainViewController.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
