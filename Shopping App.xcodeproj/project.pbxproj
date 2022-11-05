@@ -11,7 +11,7 @@
 		F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */; };
 		F34CC42C2916F045000128FE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42B2916F045000128FE /* MainView.swift */; };
 		F34CC4332916F0CD000128FE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC4322916F0CD000128FE /* MainViewModel.swift */; };
-		F34CC4352916F125000128FE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC4342916F125000128FE /* MainViewController.swift */; };
+		F34CC4372916F4CA000128FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC4362916F4CA000128FE /* MainTabBarController.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
@@ -38,7 +38,7 @@
 		F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		F34CC42B2916F045000128FE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F34CC4322916F0CD000128FE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		F34CC4342916F125000128FE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F34CC4362916F4CA000128FE /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 		F34CC42E2916F060000128FE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F34CC4342916F125000128FE /* MainViewController.swift */,
+				F34CC4362916F4CA000128FE /* MainTabBarController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -359,10 +359,10 @@
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
 				F34CC4332916F0CD000128FE /* MainViewModel.swift in Sources */,
 				F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */,
-				F34CC4352916F125000128FE /* MainViewController.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
+				F34CC4372916F4CA000128FE /* MainTabBarController.swift in Sources */,
 				F3757825291530070017B045 /* RatingEntity.swift in Sources */,
 				F3757808291445920017B045 /* Product.swift in Sources */,
 				F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */,
