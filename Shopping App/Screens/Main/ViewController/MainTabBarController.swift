@@ -12,15 +12,20 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let productsNavigationViewControler: UINavigationController = {
-            let navCont = UINavigationController(rootViewController: ProductsViewController(viewModel: ProductsViewModel()))
-            navCont.tabBarItem = UITabBarItem(title: navCont.title, image: UIImage(), tag: 0)
-            return navCont
-        }()
+//        let productsNavigationViewControler: UINavigationController = {
+//            let navCont = UINavigationController(rootViewController: ProductsViewController(viewModel: ProductsViewModel()))
+//            navCont.tabBarItem = UITabBarItem(title: navCont.title, image: UIImage(), tag: 0)
+//            return navCont
+//        }()
+//        let searchNavigationViewController = UINavigationController(rootViewController: UIViewController())
+//        let profileNavigationViewController = UIViewController()
+//
+//        setViewControllers([productsNavigationViewControler, searchNavigationViewController, profileNavigationViewController], animated: true)
+        
         let searchNavigationViewController = UINavigationController(rootViewController: UIViewController())
         let profileNavigationViewController = UIViewController()
-        
-        setViewControllers([productsNavigationViewControler, searchNavigationViewController, profileNavigationViewController], animated: true)
+        setViewControllers([ProductsViewController(viewModel: ProductsViewModel()), searchNavigationViewController, profileNavigationViewController], animated: true)
+        navigationItem.hidesBackButton = true
         selectedIndex = 0
     }
     

@@ -31,6 +31,11 @@ final class AuthViewController: UIViewController {
         title = "Sign-In"
         view = mainView
         
+        #if targetEnvironment(simulator)
+        mainView.emailTextField.text = "emiralpduman@gmail.com"
+        mainView.passwordTextField.text = "123456"
+        #endif
+        
         mainView.delegate = self
         viewModel.delegate = self
     }
@@ -99,8 +104,12 @@ extension AuthViewController: AuthViewModelDelegate {
         isThereServiceRequest = false
         
         let alert = UIAlertController(title: "Success", message: "Signed in succesfully.", preferredStyle: .alert)
-        alert.standardizeForAuth()
-        self.present(alert, animated: true)
+        let action = UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.pushViewController(MainTabBarController(), animated: true)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true) {
+        }
     }
     
     func willRequestService() {

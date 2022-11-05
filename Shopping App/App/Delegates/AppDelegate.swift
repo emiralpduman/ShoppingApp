@@ -35,9 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
 //        let viewModel = ProductsViewModel(products: self.products)
 //        let viewModel = ProductsViewModel()
-        let viewController = MainTabBarController()
-//        let viewController = AuthViewController()
-        window.rootViewController = viewController
+//        let viewController = MainTabBarController()
+        let viewController = AuthViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
     }
