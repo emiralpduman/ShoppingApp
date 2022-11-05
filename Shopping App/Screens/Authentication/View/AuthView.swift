@@ -36,17 +36,23 @@ final class AuthView: UIView {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your user name"
         textfield.isHidden = true
+        textfield.autocapitalizationType = .none
+        textfield.autocorrectionType = .no
         return textfield
     }()
     lazy var emailTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your e-mail"
+        textfield.autocapitalizationType = .none
+        textfield.autocorrectionType = .no
         return textfield
     }()
     lazy var passwordTextField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Please enter your password"
         textfield.isSecureTextEntry = true
+        textfield.autocapitalizationType = .none
+        textfield.autocorrectionType = .no
         return textfield
     }()
     lazy var passwordRepeatTextField: UITextField = {
@@ -54,6 +60,8 @@ final class AuthView: UIView {
         textfield.placeholder = "Please enter your password again"
         textfield.isSecureTextEntry = true
         textfield.isHidden = true
+        textfield.autocapitalizationType = .none
+        textfield.autocorrectionType = .no
         return textfield
     }()
     private lazy var signingTypeSegmentedControl: UISegmentedControl = {
