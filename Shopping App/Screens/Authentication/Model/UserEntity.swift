@@ -20,4 +20,5 @@ class OrderEntity: Object {
     @Persisted var productImage: String
     @Persisted var productLabel: String
     @Persisted var amount: Int
+    @Persisted var price: Double
 }

@@ -18,6 +18,7 @@ class CartTableViewCell: UITableViewCell {
                 productImageView.kf.setImage(with: URL(string: order.productImage))
                 productTitleLabel.text = order.productLabel
                 productOrderAmountLabel.text = String(order.amount)
+                productPriceLabel.text = String(order.price)
                 
             }
         }
@@ -61,9 +62,10 @@ class CartTableViewCell: UITableViewCell {
     
     private var productTitleLabel = UILabel()
     
-    private lazy var productImageAndTitleStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [productImageView, productTitleLabel])
-        stackView.axis = .horizontal
+    private var productPriceLabel = UILabel()
+    
+    private lazy var productInfoStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [productTitleLabel, productPriceLabel])
         
         return stackView
     }()

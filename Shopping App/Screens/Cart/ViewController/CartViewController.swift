@@ -26,6 +26,8 @@ class CartViewController: UIViewController {
         mainView.ordersTableView.register(CartTableViewCell.self, forCellReuseIdentifier: "orderCell")
         mainView.ordersTableView.rowHeight = 100
         mainView.ordersTableView.allowsSelection = false
+        
+        mainView.cartTotal = viewModel.getCartTotal()
 
     }
     
