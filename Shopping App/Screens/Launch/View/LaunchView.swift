@@ -43,7 +43,7 @@ class LaunchView: UIView {
         addSubview(appIconImageView)
         
         let screenWidth = UIScreen.main.bounds.width
-        let width = screenWidth / 2
+        let width = screenWidth * appIconSizeToScreenSizeRatio
         let height = width
         
         appIconImageView.snp.makeConstraints() { make in
@@ -65,5 +65,6 @@ class LaunchView: UIView {
     
     // MARK: - Drawing Constant
     private let activityIndicatorOffset: CGFloat = 10
+    private let appIconSizeToScreenSizeRatio: CGFloat = 1/2
 
 }
