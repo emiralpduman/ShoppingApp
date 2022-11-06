@@ -62,7 +62,7 @@ class LaunchView: UIView {
         
     }
     
-    // MARK: - Drawing Constant
+    // MARK: - Drawing Constants
     private let activityIndicatorOffset: CGFloat = 10
     private let appIconSizeToScreenSizeRatio: CGFloat = 1/2
 

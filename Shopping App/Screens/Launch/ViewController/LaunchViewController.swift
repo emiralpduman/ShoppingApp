@@ -11,7 +11,8 @@ class LaunchViewController: UIViewController {
     // MARK: - Properties
     private let mainView = LaunchView()
     private let viewModel = LaunchViewModel()
-
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +26,7 @@ class LaunchViewController: UIViewController {
 
 }
 
+// MARK: - View Model Delegate Conformance
 extension LaunchViewController: LaunchViewModelDelegate {
     func willFetchProducts() {
         mainView.activityIndicatorView.startAnimating()
