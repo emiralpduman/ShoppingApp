@@ -16,10 +16,8 @@ class LaunchViewController: UIViewController {
         
         title = "Welcome"
         view = mainView
-        view.backgroundColor = mainColor
+        view.backgroundColor = UIColor(named: "primary")
 
     }
 
-    // MARK: - Visual Constants
-    private let mainColor: UIColor = .red
 }
