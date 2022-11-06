@@ -11,7 +11,9 @@ import SnapKit
 class LaunchView: UIView {
     // MARK: - Subviews
     private lazy var appIconImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "AppIcon"))
+        let image = UIImage(named: "AppIcon")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -34,13 +36,20 @@ class LaunchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
 
     // MARK: - Methods
     private func setupAppIconImageView() {
         addSubview(appIconImageView)
         
+        let screenWidth = UIScreen.main.bounds.width
+        let width = screenWidth / 2
+        let height = width
+        
         appIconImageView.snp.makeConstraints() { make in
             make.center.equalToSuperview()
+            make.width.equalTo(width)
+            make.height.equalTo(height)
         }
     }
     
