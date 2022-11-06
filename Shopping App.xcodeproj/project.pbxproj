@@ -37,6 +37,7 @@
 		F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F39B4DC729100D3800F84F4A /* Kingfisher */; };
 		F39F106D2917B6500047A85B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F106C2917B6500047A85B /* LaunchView.swift */; };
 		F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F106E2917B65B0047A85B /* LaunchViewController.swift */; };
+		F39F10722917D2510047A85B /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10712917D2510047A85B /* LaunchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		F39B4DC42910061A00F84F4A /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F39F106C2917B6500047A85B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		F39F106E2917B65B0047A85B /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		F39F10712917D2510047A85B /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 		F39F10692917B62C0047A85B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				F39F10702917D2430047A85B /* ViewModel */,
 				F39F106B2917B63A0047A85B /* ViewController */,
 				F39F106A2917B6380047A85B /* View */,
 			);
@@ -333,6 +336,14 @@
 				F39F106E2917B65B0047A85B /* LaunchViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F39F10702917D2430047A85B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10712917D2510047A85B /* LaunchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +433,7 @@
 			files = (
 				F375782F2915403F0017B045 /* AuthView.swift in Sources */,
 				F375782329152FFF0017B045 /* ProductEntity.swift in Sources */,
+				F39F10722917D2510047A85B /* LaunchViewModel.swift in Sources */,
 				F34CC44029170DD8000128FE /* MainTabBarController.swift in Sources */,
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,

@@ -135,7 +135,7 @@ extension AuthViewControllerError: CustomStringConvertible {
 
 
 
-private extension UIAlertController {
+extension UIAlertController {
     func standardizeForAuth() {
         self.addAction(UIAlertAction(title: "OK", style: .default))
     }

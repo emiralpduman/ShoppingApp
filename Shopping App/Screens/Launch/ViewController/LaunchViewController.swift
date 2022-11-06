@@ -9,15 +9,38 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     // MARK: - Properties
-    private let mainView: UIView = LaunchView()
+    private let mainView = LaunchView()
+    private let viewModel = LaunchViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
+        viewModel.fetchProducts()
+        
         title = "Welcome"
         view = mainView
-        view.backgroundColor = UIColor(named: "primary")
-
+        view.backgroundColor = UIColor(named: "secondary")
     }
 
+}
+
+extension LaunchViewController: LaunchViewModelDelegate {
+    func willFetchProducts() {
+        mainView.activityIndicatorView.startAnimating()
+    }
+    
+    func didErrorOccur(_ error: Error) {
+        mainView.activityIndicatorView.stopAnimating()
+        
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.standardizeForAuth()
+        self.present(alert, animated: true)
+    }
+    
+    func didFetchProducts() {
+        mainView.activityIndicatorView.stopAnimating()
+    }
+    
+    
 }

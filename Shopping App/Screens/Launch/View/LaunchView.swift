@@ -17,7 +17,7 @@ class LaunchView: UIView {
         
         return imageView
     }()
-    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+    lazy var activityIndicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .white)
         
         return indicator
@@ -29,7 +29,6 @@ class LaunchView: UIView {
         
         setupAppIconImageView()
         setupActivityIndicatorView()
-        activityIndicatorView.startAnimating()
     }
     
     required init?(coder: NSCoder) {
