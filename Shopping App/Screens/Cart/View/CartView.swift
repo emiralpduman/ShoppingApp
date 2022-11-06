@@ -9,12 +9,56 @@ import UIKit
 import SnapKit
 
 class CartView: UIView {
+    var cartTotal: Double = 0 {
+        didSet {
+            totalNumberLabel.text = String(cartTotal)
+        }
+    }
+    
+    
     
     // MARK: - Subviews
      lazy var ordersTableView: UITableView = {
         let tableView = UITableView()
         
         return tableView
+    }()
+    
+    lazy var totalLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Total:"
+        
+        return label
+    }()
+    
+    lazy var totalNumberLabel: UILabel = {
+        let label = UILabel()
+        label.text = String(cartTotal)
+        
+        return label
+    }()
+    
+    lazy var totalStack: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [totalLabel, totalNumberLabel])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        
+        return stackView
+    }()
+    
+    lazy var payButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Pay", for: .normal)
+        button.tintColor = .red
+        return button
+    }()
+    
+    lazy var paymentStack: UIStackView = {
+       let stackView = UIStackView(arrangedSubviews: [totalStack, payButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        
+        return stackView
     }()
     
     override init(frame: CGRect) {
@@ -34,10 +78,20 @@ class CartView: UIView {
         
         ordersTableView.snp.makeConstraints() { make in
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
+        
+        addSubview(paymentStack)
+        
+        paymentStack.snp.makeConstraints() { make in
+            make.bottom.equalTo(safeAreaLayoutGuide)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(ordersTableView.snp.bottom)
+        }   
+
+        
+
     }
     
     func setTableViewConnections(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
