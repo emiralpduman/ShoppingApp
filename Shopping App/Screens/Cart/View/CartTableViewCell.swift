@@ -9,6 +9,10 @@ import UIKit
 import Kingfisher
 import SnapKit
 
+protocol CartTableViewCellDelegate: AnyObject {
+    func didTapCountStepper(senderOrder: OrderEntity)
+}
+
 
 class CartTableViewCell: UITableViewCell {
     // MARK: -- Properties
@@ -18,12 +22,15 @@ class CartTableViewCell: UITableViewCell {
                 productImageView.kf.setImage(with: URL(string: order.productImage))
                 productTitleLabel.text = order.productLabel
                 productOrderAmountLabel.text = String(order.amount)
-                productPriceLabel.text = String(order.price)
+                productPriceLabel.text = "\(order.price) TL"
                 
             }
         }
     }
-        
+    
+    weak var delegate: CartTableViewCellDelegate?
+    
+    // MARK: - Initialization    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -36,6 +43,7 @@ class CartTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -66,6 +74,8 @@ class CartTableViewCell: UITableViewCell {
     
     private lazy var productInfoStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [productTitleLabel, productPriceLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
         
         return stackView
     }()
@@ -73,7 +83,7 @@ class CartTableViewCell: UITableViewCell {
     
     private var productOrderAmountLabel = UILabel()
     
-    private lazy var orderCountStepper: UIStepper = {
+    lazy var orderCountStepper: UIStepper = {
         let stepper = UIStepper()
         stepper.minimumValue = 0
         stepper.addTarget(self, action: #selector(didTapCountStepper), for: .valueChanged)
@@ -91,7 +101,7 @@ class CartTableViewCell: UITableViewCell {
     
     
     private lazy var tableCellContainerStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [productImageView, productTitleLabel, orderAmountAndStepperStack])
+        let stackView = UIStackView(arrangedSubviews: [productImageView, productInfoStack, orderAmountAndStepperStack])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         
@@ -111,7 +121,9 @@ class CartTableViewCell: UITableViewCell {
         if let order = order {
             order.amount = Int(orderCountStepper.value)
             productOrderAmountLabel.text = String(Int(orderCountStepper.value))
+            delegate?.didTapCountStepper(senderOrder: order)
         }
+        
     }
     
     private func setupContainerStackView() {
