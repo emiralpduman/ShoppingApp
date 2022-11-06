@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let viewController = AuthViewController()
 //        let navigationController = UINavigationController(rootViewController: viewController)
         
-        window.rootViewController = LaunchViewController()
+        window.rootViewController = CartViewController()
         window.makeKeyAndVisible()
         self.window = window
     }

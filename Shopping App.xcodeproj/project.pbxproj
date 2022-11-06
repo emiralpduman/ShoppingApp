@@ -38,6 +38,10 @@
 		F39F106D2917B6500047A85B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F106C2917B6500047A85B /* LaunchView.swift */; };
 		F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F106E2917B65B0047A85B /* LaunchViewController.swift */; };
 		F39F10722917D2510047A85B /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10712917D2510047A85B /* LaunchViewModel.swift */; };
+		F39F10772917E3AC0047A85B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10762917E3AC0047A85B /* CartView.swift */; };
+		F39F10792917E3B70047A85B /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10782917E3B70047A85B /* CartViewController.swift */; };
+		F39F107B2917E5D20047A85B /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F107A2917E5D20047A85B /* CartTableViewCell.swift */; };
+		F39F107E2917EA000047A85B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F107D2917EA000047A85B /* CartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,10 @@
 		F39F106C2917B6500047A85B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		F39F106E2917B65B0047A85B /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F39F10712917D2510047A85B /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		F39F10762917E3AC0047A85B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		F39F10782917E3B70047A85B /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		F39F107A2917E5D20047A85B /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		F39F107D2917EA000047A85B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +239,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F39F10732917E3840047A85B /* Cart */,
 				F39F10692917B62C0047A85B /* Launch */,
 				F34CC43D29170DD8000128FE /* Main */,
 				F375782A29153F7F0017B045 /* Authentication */,
@@ -346,6 +355,41 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F39F10732917E3840047A85B /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				F39F107C2917E9F50047A85B /* ViewModel */,
+				F39F10752917E38C0047A85B /* ViewController */,
+				F39F10742917E3890047A85B /* View */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		F39F10742917E3890047A85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10762917E3AC0047A85B /* CartView.swift */,
+				F39F107A2917E5D20047A85B /* CartTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F39F10752917E38C0047A85B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10782917E3B70047A85B /* CartViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F39F107C2917E9F50047A85B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F39F107D2917EA000047A85B /* CartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +481,7 @@
 				F34CC44029170DD8000128FE /* MainTabBarController.swift in Sources */,
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
+				F39F10772917E3AC0047A85B /* CartView.swift in Sources */,
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
 				F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */,
 				F39F106D2917B6500047A85B /* LaunchView.swift in Sources */,
@@ -444,6 +489,9 @@
 				F34CC42929168A7E000128FE /* UserEntity.swift in Sources */,
 				F37578312915494A0017B045 /* AuthViewController.swift in Sources */,
 				F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */,
+				F39F10792917E3B70047A85B /* CartViewController.swift in Sources */,
+				F39F107B2917E5D20047A85B /* CartTableViewCell.swift in Sources */,
+				F39F107E2917EA000047A85B /* CartViewModel.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
 				F3757825291530070017B045 /* RatingEntity.swift in Sources */,
