@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol CartViewDelegate: AnyObject {
+    func didTapPayButton()
+}
+
 class CartView: UIView {
     var cartTotal: Double = 0 {
         didSet {
@@ -15,7 +19,7 @@ class CartView: UIView {
         }
     }
     
-    
+    var delegate: CartViewDelegate?
     
     // MARK: - Subviews
      lazy var ordersTableView: UITableView = {
@@ -70,6 +74,7 @@ class CartView: UIView {
         
     }
     
+    // MARK: - Initialization
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -102,6 +107,6 @@ class CartView: UIView {
     }
     
     @objc func didTapPayButton() {
-        print("payment is done")
+        delegate?.didTapPayButton()
     }
 }

@@ -22,6 +22,7 @@ class CartViewController: UIViewController {
         view.backgroundColor = .white
         
         mainView.setTableViewConnections(delegate: self, dataSource: self)
+        mainView.delegate = self
         
         mainView.ordersTableView.register(CartTableViewCell.self, forCellReuseIdentifier: "orderCell")
         mainView.ordersTableView.rowHeight = 100
@@ -65,4 +66,23 @@ extension CartViewController: CartTableViewCellDelegate {
         updateTotal()
     }
 }
+
+// MARK: - CartView Delegate Conformance
+extension CartViewController: CartViewDelegate {
+    func didTapPayButton() {
+        let alert = UIAlertController(title: "Payment", message: "Your order will be processed, continue?", preferredStyle: .alert)
+        
+        let confirmation = UIAlertAction(title: "Yes", style: .default) { _ in
+            print("your order is done")
+        }
+        
+        let cancellation = UIAlertAction(title: "No", style: .cancel)
+        
+        alert.addAction(confirmation)
+        alert.addAction(cancellation)
+        
+        present(alert, animated: true)
+    }
+}
+
 
