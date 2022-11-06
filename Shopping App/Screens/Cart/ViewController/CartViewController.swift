@@ -19,6 +19,7 @@ class CartViewController: UIViewController {
         
         view = mainView
         title = "Cart"
+        view.backgroundColor = .white
         
         mainView.setTableViewConnections(delegate: self, dataSource: self)
         
