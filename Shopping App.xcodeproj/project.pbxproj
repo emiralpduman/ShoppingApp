@@ -35,6 +35,8 @@
 		F39B4DC1290F1AAE00F84F4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F39B4DC0290F1AAE00F84F4A /* SnapKit */; };
 		F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39B4DC42910061A00F84F4A /* ProductsCollectionViewCell.swift */; };
 		F39B4DC829100D3800F84F4A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F39B4DC729100D3800F84F4A /* Kingfisher */; };
+		F39F106D2917B6500047A85B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F106C2917B6500047A85B /* LaunchView.swift */; };
+		F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F106E2917B65B0047A85B /* LaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		F39B4DBB290F156500F84F4A /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		F39B4DBD290F158100F84F4A /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		F39B4DC42910061A00F84F4A /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		F39F106C2917B6500047A85B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		F39F106E2917B65B0047A85B /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F39F10692917B62C0047A85B /* Launch */,
 				F34CC43D29170DD8000128FE /* Main */,
 				F375782A29153F7F0017B045 /* Authentication */,
 				F39B4DB3290F0A9200F84F4A /* Products */,
@@ -303,6 +308,31 @@
 				F369F60A29127F2B0011850B /* AddToCartView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F39F10692917B62C0047A85B /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				F39F106B2917B63A0047A85B /* ViewController */,
+				F39F106A2917B6380047A85B /* View */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		F39F106A2917B6380047A85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F39F106C2917B6500047A85B /* LaunchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F39F106B2917B63A0047A85B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F39F106E2917B65B0047A85B /* LaunchViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,9 +427,11 @@
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
 				F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */,
 				F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */,
+				F39F106D2917B6500047A85B /* LaunchView.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
 				F34CC42929168A7E000128FE /* UserEntity.swift in Sources */,
 				F37578312915494A0017B045 /* AuthViewController.swift in Sources */,
+				F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */,
 				F39B4DBA290F154E00F84F4A /* ProductsView.swift in Sources */,
 				F39B4DBE290F158100F84F4A /* ProductsViewModel.swift in Sources */,
 				F3757825291530070017B045 /* RatingEntity.swift in Sources */,
