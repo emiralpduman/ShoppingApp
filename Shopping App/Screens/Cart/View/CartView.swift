@@ -50,6 +50,8 @@ class CartView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Pay", for: .normal)
         button.tintColor = .red
+        button.addTarget(self, action: #selector(didTapPayButton), for: .touchDown)
+        
         return button
     }()
     
@@ -97,5 +99,9 @@ class CartView: UIView {
     func setTableViewConnections(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         ordersTableView.delegate = delegate
         ordersTableView.dataSource = dataSource
+    }
+    
+    @objc func didTapPayButton() {
+        print("payment is done")
     }
 }
