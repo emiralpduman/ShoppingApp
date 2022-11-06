@@ -11,7 +11,7 @@ import SnapKit
 class CartView: UIView {
     var cartTotal: Double = 0 {
         didSet {
-            totalNumberLabel.text = String(cartTotal)
+            totalNumberLabel.text = "\(cartTotal) TL"
         }
     }
     
@@ -88,7 +88,7 @@ class CartView: UIView {
             make.bottom.equalTo(safeAreaLayoutGuide)
             make.centerX.equalToSuperview()
             make.top.equalTo(ordersTableView.snp.bottom)
-        }   
+        }
 
         
 

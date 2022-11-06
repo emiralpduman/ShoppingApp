@@ -31,9 +31,9 @@ class CartViewController: UIViewController {
 
     }
     
-
-
-
+    @objc private func updateTotal() {
+        mainView.cartTotal = viewModel.getCartTotal()
+    }
 }
 
 // MARK: - Table View Protocol Conformance
@@ -45,7 +45,24 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! CartTableViewCell
         cell.order = viewModel.orders[indexPath.row]
+        cell.delegate = self
         
         return cell
     }
 }
+
+// MARK: - CartTableViewCell Delegate Conformance
+extension CartViewController: CartTableViewCellDelegate {
+    func didTapCountStepper(senderOrder: OrderEntity) {
+        let orders = viewModel.orders
+
+        for index in 0..<orders.count {
+            if orders[index]._id == senderOrder._id {
+                orders[index].amount = senderOrder.amount
+            }
+        }
+
+        updateTotal()
+    }
+}
+
