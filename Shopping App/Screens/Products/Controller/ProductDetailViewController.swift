@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-final class ProductDetailViewController: UIViewController {
+final class ProductDetailViewController: UIViewController, RealmReachable {
     
     // MARK: - Properties
     private var mainView = ProductDetailView()
@@ -21,7 +22,7 @@ final class ProductDetailViewController: UIViewController {
         }
         mainView.productImageView.kf.setImage(with: URL(string: product.image))
         mainView.productNameLabel.text = product.title
-        mainView.productPriceLabel.text = "\(product.price) TL"
+        mainView.productPriceLabel.text = "\(product.price)"
         mainView.productDescriptionLabel.text = product.description
         mainView.productCategoryLabel.text = "Category: \(product.category)"
         mainView.productRatingRateLabel.text = "Rating: \(rating.rate)"
@@ -73,6 +74,27 @@ class HalfSizePresentationController: UIPresentationController {
 }
 
 extension ProductDetailViewController: PresentationDelegate {
+    func didTapAddToCart(quantity: Int) {
+        let order = OrderEntity()
+        order.amount = quantity
+        order.productLabel = mainView.productNameLabel.text!
+        order.price = Double( mainView.productPriceLabel.text!)!
+        order._id = UUID().uuidString
+        
+        let user = Auth.auth().currentUser
+        let userKey = user?.uid
+        
+        var userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
+        
+        try! realm.write {
+            userInDb!.cart.append(order)
+        }
+        
+        self.presentedViewController?.dismiss(animated: true)
+
+        
+    }
+    
     func didSwipeDown() {
         self.presentedViewController?.dismiss(animated: true)
     }

@@ -15,7 +15,7 @@ protocol CartViewDelegate: AnyObject {
 class CartView: UIView {
     var cartTotal: Double = 0 {
         didSet {
-            totalNumberLabel.text = "\(cartTotal) TL"
+            totalNumberLabel.text = "\(cartTotal)"
         }
     }
     
@@ -53,7 +53,8 @@ class CartView: UIView {
     lazy var payButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Pay", for: .normal)
-        button.tintColor = .red
+        button.backgroundColor = UIColor(named: "primary")
+        button.tintColor = .white
         button.addTarget(self, action: #selector(didTapPayButton), for: .touchDown)
         
         return button

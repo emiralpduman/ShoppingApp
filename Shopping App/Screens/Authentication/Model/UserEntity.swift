@@ -17,7 +17,6 @@ class UserEntity: Object {
 
 class OrderEntity: Object {
     @Persisted(primaryKey: true) var _id: String
-    @Persisted var productImage: String
     @Persisted var productLabel: String
     @Persisted var amount: Int
     @Persisted var price: Double

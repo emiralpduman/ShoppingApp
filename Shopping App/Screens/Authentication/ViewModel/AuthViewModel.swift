@@ -26,7 +26,36 @@ final class AuthViewModel: RealmReachable {
             if let error = error {
                 self.delegate?.didErrorOccur(error: error)
             } else {
+                let users = self.realm.objects(UserEntity.self)
+                
+                var isNotInDatabase = true
+                
+                for user in users {
+                    if user.emailAddress == email {
+                        isNotInDatabase = false
+                    }
+                }
+                
+                if isNotInDatabase {
+                    let user = UserEntity()
+                    if let currentUser = Auth.auth().currentUser {
+                        user.emailAddress = currentUser.email!
+                        user._id = currentUser.uid
+                        user.userName = currentUser.email!
+                    }
+                    
+                    do {
+                        try self.realm.write {
+                            self.realm.add(user)
+                            self.delegate?.didSignInSuccesfully()
+                        }
+                    } catch {
+                        self.delegate?.didErrorOccur(error: AuthViewModelError.cannotWriteToDb)
+                    }
+                }
                 self.delegate?.didSignInSuccesfully()
+                
+
             }
         }
     }
