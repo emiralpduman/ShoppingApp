@@ -79,15 +79,26 @@ extension CartViewController: CartViewDelegate {
             let userKey = user?.uid
             
             let userInDb = self.realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
+            var orderIds: [String] = []
             
-
-            try! self.realm.write {
-                userInDb?.setValue(nil, forKey: "cart")
-                let allOrders = self.realm.objects(OrderEntity.self)
-                self.realm.delete(allOrders)
+            for order in userInDb!.cart {
+                orderIds.append(order._id)
+            }
+                        
+            for id in orderIds {
+                var order = self.realm.object(ofType: OrderEntity.self, forPrimaryKey: id)
+                try! self.realm.write {
+                    self.realm.delete(order!)
+                }
             }
             
+            let alert = UIAlertController(title: "Done!", message: "We received your order. Thank you. You will be directed main screen", preferredStyle: .alert)
+            let approval = UIAlertAction(title: "OK", style: .default) {_ in
+                self.navigationController?.pushViewController(MainTabBarController(), animated: true)
+            }
             
+            alert.addAction(approval)
+            self.present(alert, animated: true)
             
         }
         
