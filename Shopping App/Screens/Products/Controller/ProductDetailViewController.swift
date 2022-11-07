@@ -23,7 +23,7 @@ final class ProductDetailViewController: UIViewController, RealmReachable {
         mainView.productImageView.kf.setImage(with: URL(string: product.image))
         mainView.productNameLabel.text = product.title
         mainView.productPriceLabel.text = "\(product.price)"
-        mainView.productDescriptionLabel.text = product.description
+        mainView.productDescriptionLabel.text = product.desc
         mainView.productCategoryLabel.text = "Category: \(product.category)"
         mainView.productRatingRateLabel.text = "Rating: \(rating.rate)"
         mainView.productRatingCountLabel.text = "Rated by: \(rating.count) Users"
