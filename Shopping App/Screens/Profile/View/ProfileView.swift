@@ -112,10 +112,10 @@ class ProfileView: UIView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.trailing.equalToSuperview().inset(insetDefault)
             make.leading.equalToSuperview().inset(insetDefault)
+            make.height.lessThanOrEqualTo(75)
         }
         
         signOutButton.snp.makeConstraints() { make in
-            make.top.lessThanOrEqualTo(containerStack.snp.bottom)
             make.trailing.equalToSuperview().inset(insetDefault)
             make.leading.equalToSuperview().inset(insetDefault)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(insetDefault)
