@@ -84,7 +84,7 @@ extension ProductDetailViewController: PresentationDelegate {
         let user = Auth.auth().currentUser
         let userKey = user?.uid
         
-        var userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
+        let userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
         
         try! realm.write {
             userInDb!.cart.append(order)
