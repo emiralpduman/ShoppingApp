@@ -75,24 +75,26 @@ class HalfSizePresentationController: UIPresentationController {
 
 extension ProductDetailViewController: PresentationDelegate {
     func didTapAddToCart(quantity: Int) {
-        let order = OrderEntity()
-        order.amount = quantity
-        order.productLabel = mainView.productNameLabel.text!
-        order.price = Double( mainView.productPriceLabel.text!)!
-        order._id = UUID().uuidString
-        
-        let user = Auth.auth().currentUser
-        let userKey = user?.uid
-        
-        let userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
-        
-        try! realm.write {
-            userInDb!.cart.append(order)
+        if quantity == 0 {
+            return
+        } else {
+            let order = OrderEntity()
+            order.amount = quantity
+            order.productLabel = mainView.productNameLabel.text!
+            order.price = Double( mainView.productPriceLabel.text!)!
+            order._id = UUID().uuidString
+            
+            let user = Auth.auth().currentUser
+            let userKey = user?.uid
+            
+            let userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
+            
+            try! realm.write {
+                userInDb!.cart.append(order)
+            }
+            
+            self.presentedViewController?.dismiss(animated: true)
         }
-        
-        self.presentedViewController?.dismiss(animated: true)
-
-        
     }
     
     func didSwipeDown() {
