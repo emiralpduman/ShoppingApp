@@ -19,10 +19,10 @@ class CartTableViewCell: UITableViewCell {
     var order: OrderEntity? {
         didSet {
             if let order = order {
-                productImageView.kf.setImage(with: URL(string: order.productImage))
+//                productImageView.kf.setImage(with: URL(string: order.productImage))
                 productTitleLabel.text = order.productLabel
                 productOrderAmountLabel.text = String(order.amount)
-                productPriceLabel.text = "\(order.price) TL"
+                productPriceLabel.text = "\(order.price)"
                 
             }
         }

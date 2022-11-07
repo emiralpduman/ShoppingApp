@@ -81,6 +81,8 @@ final class AuthView: UIView {
     private lazy var signButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign-In", for: .normal)
+        button.backgroundColor = UIColor(named: "primary")
+        button.tintColor = .white
         button.addTarget(self, action: #selector(didButtonTouchDown), for: .touchDown)
         return button
         

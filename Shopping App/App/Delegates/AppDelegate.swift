@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import FirebaseCore
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,25 +23,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     var window: UIWindow?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupLandingWindow()
         FirebaseApp.configure()
+    
 
         return true
     }
     
     private func setupLandingWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        let viewModel = ProductsViewModel(products: self.products)
-//        let viewModel = ProductsViewModel()
+
 //        let viewController = MainTabBarController()
 //        let viewController = AuthViewController()
-//        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: LaunchViewController())
         
-        window.rootViewController = CartViewController()
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
+        
         self.window = window
     }
     

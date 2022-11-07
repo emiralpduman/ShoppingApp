@@ -83,4 +83,5 @@ class LaunchViewModel: RealmReachable {
         
         
     }
+
 }

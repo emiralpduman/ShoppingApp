@@ -42,6 +42,7 @@ extension LaunchViewController: LaunchViewModelDelegate {
     
     func didFetchProducts() {
         mainView.activityIndicatorView.stopAnimating()
+        navigationController?.pushViewController(AuthViewController(), animated: true)
     }
     
     

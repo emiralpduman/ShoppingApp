@@ -30,6 +30,7 @@ final class AuthViewController: UIViewController {
         
         title = "Sign-In"
         view = mainView
+        navigationItem.hidesBackButton = true
         
         #if targetEnvironment(simulator)
         mainView.emailTextField.text = "emiralpduman@gmail.com"
@@ -98,6 +99,7 @@ extension AuthViewController: AuthViewModelDelegate {
         let alert = UIAlertController(title: "Success", message: "Signed up succesfully.", preferredStyle: .alert)
         alert.standardizeForAuth()
         self.present(alert, animated: true)
+        navigationController?.pushViewController(MainTabBarController(), animated: true)
     }
     
     func didSignInSuccesfully() {
