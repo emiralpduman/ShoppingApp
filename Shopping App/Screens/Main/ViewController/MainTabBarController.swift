@@ -30,10 +30,19 @@ class MainTabBarController: UITabBarController {
         
         let profile = UINavigationController(rootViewController: UIViewController())
         profile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 2)
-        
         setViewControllers([products, search, profile], animated: true)
+        
         navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: .plain, target: self, action: #selector(didTapCart))
         selectedIndex = 0
+        
+        
+        
+        
+    }
+    
+    @objc func didTapCart() {
+        navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
 
