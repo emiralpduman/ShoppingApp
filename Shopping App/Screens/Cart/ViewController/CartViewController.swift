@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, RealmReachable {
     private let viewModel = CartViewModel()
     
     
@@ -73,7 +74,21 @@ extension CartViewController: CartViewDelegate {
         let alert = UIAlertController(title: "Payment", message: "Your order will be processed, continue?", preferredStyle: .alert)
         
         let confirmation = UIAlertAction(title: "Yes", style: .default) { _ in
-            print("your order is done")
+            
+            let user = Auth.auth().currentUser
+            let userKey = user?.uid
+            
+            let userInDb = self.realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
+            
+
+            try! self.realm.write {
+                userInDb?.setValue(nil, forKey: "cart")
+                let allOrders = self.realm.objects(OrderEntity.self)
+                self.realm.delete(allOrders)
+            }
+            
+            
+            
         }
         
         let cancellation = UIAlertAction(title: "No", style: .cancel)

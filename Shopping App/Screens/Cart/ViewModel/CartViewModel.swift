@@ -7,21 +7,10 @@
 
 import Foundation
 
-class CartViewModel {
+class CartViewModel: RealmReachable {
     lazy var orders: [OrderEntity] = {
-        let order1 = OrderEntity()
-        order1._id = "1"
-        order1.productLabel = "PlayStation 5"
-        order1.amount = 1
-        order1.price = 100
-        
-        let order2 = OrderEntity()
-        order2._id = "2"
-        order2.productLabel = "iPhone 14 Pro Max"
-        order2.amount = 2
-        order2.price = 200
-        
-        return [order1, order2]
+        let orders = realm.objects(OrderEntity.self)
+        return Array(orders)
     }()
     
     func getCartTotal() -> Double {
