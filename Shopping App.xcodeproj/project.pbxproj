@@ -45,6 +45,10 @@
 		F39F10852918B9220047A85B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10842918B9220047A85B /* ProfileView.swift */; };
 		F39F10872918B9300047A85B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10862918B92F0047A85B /* ProfileViewController.swift */; };
 		F39F108A2918BDB90047A85B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10892918BDB90047A85B /* ProfileViewModel.swift */; };
+		F39F10932918D6BC0047A85B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10922918D6BC0047A85B /* OnboardingView.swift */; };
+		F39F10952918DA650047A85B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10942918DA650047A85B /* OnboardingViewController.swift */; };
+		F39F10992918DB520047A85B /* MainOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10982918DB520047A85B /* MainOnboardingView.swift */; };
+		F39F109C2918DB660047A85B /* MainOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F109B2918DB660047A85B /* MainOnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +87,10 @@
 		F39F10842918B9220047A85B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F39F10862918B92F0047A85B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F39F10892918BDB90047A85B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F39F10922918D6BC0047A85B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F39F10942918DA650047A85B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		F39F10982918DB520047A85B /* MainOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboardingView.swift; sourceTree = "<group>"; };
+		F39F109B2918DB660047A85B /* MainOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainOnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +253,7 @@
 		F39B4DAE290F037100F84F4A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F39F108B2918D6540047A85B /* Onboarding */,
 				F39F10812918B8FC0047A85B /* Profile */,
 				F39F10732917E3840047A85B /* Cart */,
 				F39F10692917B62C0047A85B /* Launch */,
@@ -431,6 +440,65 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F39F108B2918D6540047A85B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F39F108F2918D6950047A85B /* Onboarding */,
+				F39F108E2918D6910047A85B /* Main */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F39F108C2918D6580047A85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10922918D6BC0047A85B /* OnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F39F108D2918D65A0047A85B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10942918DA650047A85B /* OnboardingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F39F108E2918D6910047A85B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10912918D6AA0047A85B /* View */,
+				F39F10902918D6A40047A85B /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F39F108F2918D6950047A85B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F39F108D2918D65A0047A85B /* Controller */,
+				F39F108C2918D6580047A85B /* View */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F39F10902918D6A40047A85B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F39F109B2918DB660047A85B /* MainOnboardingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F39F10912918D6AA0047A85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F39F10982918DB520047A85B /* MainOnboardingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -516,12 +584,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39F10992918DB520047A85B /* MainOnboardingView.swift in Sources */,
+				F39F10932918D6BC0047A85B /* OnboardingView.swift in Sources */,
 				F375782F2915403F0017B045 /* AuthView.swift in Sources */,
 				F375782329152FFF0017B045 /* ProductEntity.swift in Sources */,
 				F39F10722917D2510047A85B /* LaunchViewModel.swift in Sources */,
 				F34CC44029170DD8000128FE /* MainTabBarController.swift in Sources */,
 				F39B4DBC290F156500F84F4A /* ProductsViewController.swift in Sources */,
 				F32DF1E92911913C00602638 /* ProductDetailView.swift in Sources */,
+				F39F10952918DA650047A85B /* OnboardingViewController.swift in Sources */,
 				F39F108A2918BDB90047A85B /* ProfileViewModel.swift in Sources */,
 				F39F10872918B9300047A85B /* ProfileViewController.swift in Sources */,
 				F39F10772917E3AC0047A85B /* CartView.swift in Sources */,
@@ -533,6 +604,7 @@
 				F37578312915494A0017B045 /* AuthViewController.swift in Sources */,
 				F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */,
 				F39F10852918B9220047A85B /* ProfileView.swift in Sources */,
+				F39F109C2918DB660047A85B /* MainOnboardingViewController.swift in Sources */,
 				F39F10792917E3B70047A85B /* CartViewController.swift in Sources */,
 				F39F107B2917E5D20047A85B /* CartTableViewCell.swift in Sources */,
 				F39F107E2917EA000047A85B /* CartViewModel.swift in Sources */,
