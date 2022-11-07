@@ -32,6 +32,7 @@ final class AuthViewController: UIViewController {
         view = mainView
         navigationItem.hidesBackButton = true
         
+        
         #if targetEnvironment(simulator)
         mainView.emailTextField.text = "emiralpduman@gmail.com"
         mainView.passwordTextField.text = "123456"
