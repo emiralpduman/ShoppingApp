@@ -86,7 +86,7 @@ extension CartViewController: CartViewDelegate {
             }
                         
             for id in orderIds {
-                var order = self.realm.object(ofType: OrderEntity.self, forPrimaryKey: id)
+                let order = self.realm.object(ofType: OrderEntity.self, forPrimaryKey: id)
                 try! self.realm.write {
                     self.realm.delete(order!)
                 }
@@ -110,5 +110,3 @@ extension CartViewController: CartViewDelegate {
         present(alert, animated: true)
     }
 }
-
-
