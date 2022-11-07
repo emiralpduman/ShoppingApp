@@ -22,9 +22,16 @@ class MainTabBarController: UITabBarController {
 //
 //        setViewControllers([productsNavigationViewControler, searchNavigationViewController, profileNavigationViewController], animated: true)
         
-        let searchNavigationViewController = UINavigationController(rootViewController: UIViewController())
-        let profileNavigationViewController = UIViewController()
-        setViewControllers([ProductsViewController(viewModel: ProductsViewModel()), searchNavigationViewController, profileNavigationViewController], animated: true)
+        let products = ProductsViewController(viewModel: ProductsViewModel())
+        products.tabBarItem = UITabBarItem(title: products.title, image: UIImage(named: "products"), tag: 0)
+        
+        let search = UINavigationController(rootViewController: UIViewController())
+        search.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
+        
+        let profile = UINavigationController(rootViewController: UIViewController())
+        profile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 2)
+        
+        setViewControllers([products, search, profile], animated: true)
         navigationItem.hidesBackButton = true
         selectedIndex = 0
     }
