@@ -32,7 +32,7 @@
 <h3 align="center">Shopping App</h3>
 
   <p align="center">
-    Shopping app lets you gets you to a shopping experience. You can explore through various products, get details and if you like them, why not adding to your cart? Rest is placing your order and waiting for the stuff that you have just ordered!
+    Shopping app gets you to a shopping experience. You can explore through various products, get details and if you like them, why not adding to your cart? Rest is placing your order and waiting for the stuff that you have just ordered!
     <br />
     <a href="https://github.com/emiralpduman/ShoppingApp/tree/main/Shopping%20App"><strong>Explore the docs »</strong></a>
     <br />
@@ -72,7 +72,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This app was done for final project assignment of Pazarama Patika.dev iOS Bootcamp. In line with final project requirements, Swift and UIKit was used throughout development of entire app. Architecture was chosen to be MVVM. UI elements were developed programmatically.</br></br>Due to time constraint, Onboarding feature was not ready to be shipped and Search tab is left under construction. I plan to add these features in future! And again, due to time, there are some bugs out there...
+This app was done for final project assignment of Patika.dev Pazarama iOS Swift Bootcamp. In line with final project requirements, Swift and UIKit were used throughout development of app. Architecture was chosen to be MVVM. UI elements were developed programmatically.</br></br>Due to time constraint, Onboarding feature was not ready to be shipped and Search tab is left under construction. I plan to add these features in future! And again, due to time, there are some bugs out there...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,8 +89,6 @@ This app was done for final project assignment of Pazarama Patika.dev iOS Bootca
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
-
 ### Package Dependencies
 
 All package dependencies are installed automatically via SPM. Package dependencies are as follows;
@@ -101,6 +99,8 @@ All package dependencies are installed automatically via SPM. Package dependenci
 * Kingfisher
 
 ### Installation
+
+To get a local copy up and running follow these simple example steps.
 
 * Clone or download the project.
 * Open project with \*.xcworkspace file.
