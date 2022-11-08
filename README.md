@@ -56,7 +56,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#package-dependencies">Package Dependencies</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -91,7 +91,7 @@ This app was done for final project assignment of Pazarama Patika.dev iOS Bootca
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Package Dependencies
 
 All package dependencies are installed automatically via SPM. Package dependencies are as follows;
 
