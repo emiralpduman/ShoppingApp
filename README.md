@@ -112,21 +112,21 @@ All package dependencies are installed automatically via SPM. Package dependenci
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-* Sign-in, Sign-Up </br></br>
+### Sign-in, Sign-Up </br></br>
 ![signIn-2](https://user-images.githubusercontent.com/83015729/200600070-cb1e4603-699d-4554-ac7c-a03017272021.gif)
 ![signUp](https://user-images.githubusercontent.com/83015729/200608654-09f89dff-ce67-4a6a-9681-7de748850434.gif)
 
 </br>
 
-* Products, Product Details, Add to Cart </br></br>
+### Products, Product Details, Add to Cart </br></br>
 ![productDetailsAndCart](https://user-images.githubusercontent.com/83015729/200606033-9606598f-ed0f-4aaa-a657-a728c5e6c2d3.gif)
 </br>
 
-* Cart, Pay </br></br>
+### Cart, Pay </br></br>
 ![pay](https://user-images.githubusercontent.com/83015729/200605897-a3f5fb07-9029-47a4-bdcf-309096a83550.gif)
 </br>
 
-* Profile, Sign Out </br></br>
+### Profile, Sign Out </br></br>
 ![profileAndSignOut](https://user-images.githubusercontent.com/83015729/200606198-2393504f-df59-43df-a9ee-d5cd3532bfa3.gif)
 </br>
 
