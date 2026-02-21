@@ -13,7 +13,7 @@ final class ProductsViewController: UIViewController {
     // MARK: - Properties
     private lazy var mainView = ProductsView()
     
-    // MARK: - Initilization
+    // MARK: - Initialization
     init(viewModel: ProductsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
