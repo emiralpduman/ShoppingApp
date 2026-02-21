@@ -1,5 +1,5 @@
 //
-//  RealmReacheable.swift
+//  RealmReachable.swift
 //  Shopping App
 //
 //  Created by Emiralp Duman on 4.11.2022.

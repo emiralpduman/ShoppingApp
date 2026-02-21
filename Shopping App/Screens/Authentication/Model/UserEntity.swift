@@ -14,10 +14,3 @@ class UserEntity: Object {
     @Persisted var emailAddress: String
     @Persisted var cart: List<OrderEntity>
 }
-
-class OrderEntity: Object {
-    @Persisted(primaryKey: true) var _id: String
-    @Persisted var productLabel: String
-    @Persisted var amount: Int
-    @Persisted var price: Double
-}

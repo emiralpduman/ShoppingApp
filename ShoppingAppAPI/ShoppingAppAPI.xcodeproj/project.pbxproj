@@ -32,7 +32,7 @@
 		F3416C1D2913D9E400FBDD8C /* ShoppingAppAPI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShoppingAppAPI.docc; sourceTree = "<group>"; };
 		F3416C232913D9E400FBDD8C /* ShoppingAppAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingAppAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3416C282913D9E400FBDD8C /* ShoppingAppAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingAppAPITests.swift; sourceTree = "<group>"; };
-		F3416C342913DB6000FBDD8C /* FakeStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeStoreService.swift; path = ../../FakeStoreService.swift; sourceTree = "<group>"; };
+		F3416C342913DB6000FBDD8C /* FakeStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeStoreService.swift; sourceTree = "<group>"; };
 		F3416C392913EB5200FBDD8C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,12 +77,20 @@
 		F3416C1B2913D9E400FBDD8C /* ShoppingAppAPI */ = {
 			isa = PBXGroup;
 			children = (
+				F3416C3B2913DB7000FBDD8C /* Services */,
 				F3416C332913DA6A00FBDD8C /* Entity */,
 				F3416C1C2913D9E400FBDD8C /* ShoppingAppAPI.h */,
 				F3416C1D2913D9E400FBDD8C /* ShoppingAppAPI.docc */,
-				F3416C342913DB6000FBDD8C /* FakeStoreService.swift */,
 			);
 			path = ShoppingAppAPI;
+			sourceTree = "<group>";
+		};
+		F3416C3B2913DB7000FBDD8C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F3416C342913DB6000FBDD8C /* FakeStoreService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F3416C272913D9E400FBDD8C /* ShoppingAppAPITests */ = {
