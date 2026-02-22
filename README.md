@@ -29,6 +29,33 @@ An e-commerce iOS app where users can browse products, view details, manage a sh
 
 ## Architecture
 
+```mermaid
+graph TD
+    A[AppDelegate] --> B[MainTabBarController]
+    B --> C[ProductsViewController]
+    B --> D[CartViewController]
+    B --> E[ProfileViewController]
+
+    C --> F[ProductsViewModel]
+    D --> G[CartViewModel]
+    E --> H[ProfileViewModel]
+
+    F -->|Delegate Pattern| C
+    G -->|Delegate Pattern| D
+    H -->|Delegate Pattern| E
+
+    F --> I[ShoppingAppAPIMoya Service Layer]
+    F --> J[RealmReachableProtocol Extension]
+    G --> J
+    H --> J
+
+    I -->|REST| K[FakeStore API]
+    J -->|Persistence| L[Realm DB]
+
+    style I fill:#f9f,stroke:#333
+    style J fill:#bbf,stroke:#333
+```
+
 ```
 ShoppingApp/
 ├── App/
@@ -45,6 +72,8 @@ ShoppingApp/
 ```
 
 Each screen follows **MVVM**: `View` (programmatic UIKit) → `ViewController` → `ViewModel`. ViewModels communicate with ViewControllers via the **delegate pattern**. Data persistence is abstracted through the `RealmReachable` protocol, injected via protocol extensions.
+
+> For a detailed breakdown of architectural decisions, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Prerequisites
 
