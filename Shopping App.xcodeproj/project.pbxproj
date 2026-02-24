@@ -13,12 +13,13 @@
 		F34CC424291582E5000128FE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F34CC423291582E5000128FE /* FirebaseAuth */; };
 		F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC425291584D0000128FE /* AuthViewModel.swift */; };
 		F34CC42929168A7E000128FE /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42829168A7E000128FE /* UserEntity.swift */; };
+		F34CC42A29168A7F000128FE /* OrderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC42B29168A7F000128FE /* OrderEntity.swift */; };
 		F34CC44029170DD8000128FE /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34CC43F29170DD8000128FE /* MainTabBarController.swift */; };
 		F369F60B29127F2B0011850B /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60A29127F2B0011850B /* AddToCartView.swift */; };
 		F369F60D29127FFA0011850B /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F369F60C29127FFA0011850B /* AddToCartViewController.swift */; };
 		F37578052914452D0017B045 /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37578042914452D0017B045 /* ShoppingAppAPI.framework */; };
 		F3757808291445920017B045 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3757807291445920017B045 /* Product.swift */; };
-		F375781C29152E9C0017B045 /* RealmReacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375781B29152E9C0017B045 /* RealmReacheable.swift */; };
+		F375781C29152E9C0017B045 /* RealmReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375781B29152E9C0017B045 /* RealmReachable.swift */; };
 		F375781F29152EFF0017B045 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F375781E29152EFF0017B045 /* Realm */; };
 		F375782129152EFF0017B045 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F375782029152EFF0017B045 /* RealmSwift */; };
 		F375782329152FFF0017B045 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375782229152FFF0017B045 /* ProductEntity.swift */; };
@@ -53,15 +54,16 @@
 		F34CC42029158271000128FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F34CC425291584D0000128FE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F34CC42829168A7E000128FE /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		F34CC42B29168A7F000128FE /* OrderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEntity.swift; sourceTree = "<group>"; };
 		F34CC43F29170DD8000128FE /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F369F60A29127F2B0011850B /* AddToCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartView.swift; sourceTree = "<group>"; };
 		F369F60C29127FFA0011850B /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		F37578042914452D0017B045 /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3757807291445920017B045 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		F375781B29152E9C0017B045 /* RealmReacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReacheable.swift; sourceTree = "<group>"; };
+		F375781B29152E9C0017B045 /* RealmReachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReachable.swift; sourceTree = "<group>"; };
 		F375782229152FFF0017B045 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
 		F3757824291530070017B045 /* RatingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingEntity.swift; sourceTree = "<group>"; };
-		F3757828291537AB0017B045 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = products.json; path = ../../../../../Downloads/products.json; sourceTree = "<group>"; };
+		F3757828291537AB0017B045 /* products.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = products.json; sourceTree = "<group>"; };
 		F375782E2915403F0017B045 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F37578302915494A0017B045 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		F39B4D95290EF2C100F84F4A /* Shopping App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				F34CC42829168A7E000128FE /* UserEntity.swift */,
+				F34CC42B29168A7F000128FE /* OrderEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,7 +158,7 @@
 		F375781A29152D950017B045 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F375781B29152E9C0017B045 /* RealmReacheable.swift */,
+				F375781B29152E9C0017B045 /* RealmReachable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -187,12 +190,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F375782C29153FC40017B045 /* Controller */ = {
+		F375782C29153FC40017B045 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F37578302915494A0017B045 /* AuthViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F375782D29153FC70017B045 /* ViewModel */ = {
@@ -307,14 +310,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F39B4DB5290F0B2100F84F4A /* Controller */ = {
+		F39B4DB5290F0B2100F84F4A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F39B4DBB290F156500F84F4A /* ProductsViewController.swift */,
 				F32DF1EA2911A33B00602638 /* ProductDetailViewController.swift */,
 				F369F60C29127FFA0011850B /* AddToCartViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		F39B4DB6290F0B2700F84F4A /* View */ = {
@@ -530,6 +533,7 @@
 				F39F106D2917B6500047A85B /* LaunchView.swift in Sources */,
 				F39B4DC52910061A00F84F4A /* ProductsCollectionViewCell.swift in Sources */,
 				F34CC42929168A7E000128FE /* UserEntity.swift in Sources */,
+				F34CC42A29168A7F000128FE /* OrderEntity.swift in Sources */,
 				F37578312915494A0017B045 /* AuthViewController.swift in Sources */,
 				F39F106F2917B65B0047A85B /* LaunchViewController.swift in Sources */,
 				F39F10852918B9220047A85B /* ProfileView.swift in Sources */,
@@ -542,7 +546,7 @@
 				F3757808291445920017B045 /* Product.swift in Sources */,
 				F34CC426291584D0000128FE /* AuthViewModel.swift in Sources */,
 				F32DF1EB2911A33B00602638 /* ProductDetailViewController.swift in Sources */,
-				F375781C29152E9C0017B045 /* RealmReacheable.swift in Sources */,
+				F375781C29152E9C0017B045 /* RealmReachable.swift in Sources */,
 				F39B4D99290EF2C100F84F4A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

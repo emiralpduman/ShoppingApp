@@ -66,7 +66,7 @@ final class AddToCartView: UIView {
         return stackView
     }()
     
-    // MARK: - Initilization
+    // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
