@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController {
         let search = UINavigationController(rootViewController: UIViewController())
         search.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
         
-        let profile = UINavigationController(rootViewController: UIViewController())
+        let profile = ProfileViewController()
         profile.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 2)
         setViewControllers([products, search, profile], animated: true)
         

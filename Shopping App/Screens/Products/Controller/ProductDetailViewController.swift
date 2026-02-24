@@ -23,7 +23,7 @@ final class ProductDetailViewController: UIViewController, RealmReachable {
         mainView.productImageView.kf.setImage(with: URL(string: product.image))
         mainView.productNameLabel.text = product.title
         mainView.productPriceLabel.text = "\(product.price)"
-        mainView.productDescriptionLabel.text = product.description
+        mainView.productDescriptionLabel.text = product.desc
         mainView.productCategoryLabel.text = "Category: \(product.category)"
         mainView.productRatingRateLabel.text = "Rating: \(rating.rate)"
         mainView.productRatingCountLabel.text = "Rated by: \(rating.count) Users"
@@ -75,24 +75,26 @@ class HalfSizePresentationController: UIPresentationController {
 
 extension ProductDetailViewController: PresentationDelegate {
     func didTapAddToCart(quantity: Int) {
-        let order = OrderEntity()
-        order.amount = quantity
-        order.productLabel = mainView.productNameLabel.text!
-        order.price = Double( mainView.productPriceLabel.text!)!
-        order._id = UUID().uuidString
-        
-        let user = Auth.auth().currentUser
-        let userKey = user?.uid
-        
-        let userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
-        
-        try! realm.write {
-            userInDb!.cart.append(order)
+        if quantity == 0 {
+            return
+        } else {
+            let order = OrderEntity()
+            order.amount = quantity
+            order.productLabel = mainView.productNameLabel.text!
+            order.price = Double( mainView.productPriceLabel.text!)!
+            order._id = UUID().uuidString
+            
+            let user = Auth.auth().currentUser
+            let userKey = user?.uid
+            
+            let userInDb = realm.object(ofType: UserEntity.self, forPrimaryKey: userKey)
+            
+            try! realm.write {
+                userInDb!.cart.append(order)
+            }
+            
+            self.presentedViewController?.dismiss(animated: true)
         }
-        
-        self.presentedViewController?.dismiss(animated: true)
-
-        
     }
     
     func didSwipeDown() {
