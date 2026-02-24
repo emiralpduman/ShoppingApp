@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var products: [Product] {
         let productCount = 20
         var collection: [Product] = []
-        for _ in 0...productCount {
-            collection.append(Product())
+        for index in 0...productCount {
+            collection.append(Product(title: "Product\(index) "))
         }
         return collection
     }
@@ -31,11 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupLandingWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        let viewModel = ProductsViewModel(products: self.products)
-//        let viewController = ProductsViewController(viewModel: viewModel)
-        
-        let viewController = ProductDetailViewController()    
-        
+        let viewModel = ProductsViewModel(products: self.products)
+        let viewController = ProductsViewController(viewModel: viewModel)
+                
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

@@ -37,7 +37,7 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.products.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let viewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "productsCell", for: indexPath) as? ProductsCollectionViewCell else {
             fatalError("ProductsCollectionViewCell was not found")
@@ -45,6 +45,12 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
         
         viewCell.product = viewModel.products[indexPath.row]
         return viewCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = ProductDetailViewController(product: viewModel.products[indexPath.row])
+        navigationController?.pushViewController(detailVC, animated: true)
+        
     }
     
     

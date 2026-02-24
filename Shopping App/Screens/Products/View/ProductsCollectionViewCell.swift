@@ -15,8 +15,9 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
     let labelVerticalInsetWRTImage: CGFloat = 10
     
     //MARK: - Properties
-    var product: Product {
+    var product: Product? {
         didSet {
+            guard let product = product else { return }
             productImageView.kf.setImage(with: URL(string: product.imageURL ))
             productNameLabel.text = product.title
             productPriceLabel.text = String(product.price)
@@ -52,8 +53,6 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Initialization
     override init(frame: CGRect) {
-        self.product = Product()
-
         super.init(frame: frame)
         
         //Adding subviews

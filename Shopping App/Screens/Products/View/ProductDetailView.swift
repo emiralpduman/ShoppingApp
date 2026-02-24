@@ -8,46 +8,41 @@
 import UIKit
 import Kingfisher
 
-class ProductDetailView: UIView {
+protocol ProductDetailViewDelegate: AnyObject {
+    func productDetailView(_ view: ProductDetailView, didTapAddToCartButton: UIButton)
+}
+
+final class ProductDetailView: UIView {
     
     // MARK: - Properties
-    var product: Product {
-        didSet {
-            productImageView.kf.setImage(with: URL(string: product.imageURL))
-            productNameLabel.text = product.title
-            productPriceLabel.text = "\(product.price) TL"
-            productDescriptionLabel.text = product.description
-            productCategoryLabel.text = "Category: \(product.category)"
-            productRatingRateLabel.text = "Rating: \(product.rating.rate)"
-            productRatingCountLabel.text = "Rated by: \(product.rating.count) Users"
-        }
-    }
+    weak var delegate: ProductDetailViewDelegate?
     
     override var alignmentRectInsets: UIEdgeInsets {
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
     
     // MARK: - Visual Elements
-    private lazy var productImageView: UIImageView = {
+    lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
-    private lazy var productNameLabel: UILabel = {
+    lazy var productNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         return label
     }()
-    private lazy var productPriceLabel: UILabel = {
+    lazy var productPriceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         return label
     }()
-    private var productDescriptionLabel = UILabel()
-    private var productCategoryLabel = UILabel()
-    private var productRatingRateLabel = UILabel()
-    private var productRatingCountLabel = UILabel()
+    var productDescriptionLabel = UILabel()
+    var productCategoryLabel = UILabel()
+    var productRatingRateLabel = UILabel()
+    var productRatingCountLabel = UILabel()
+    
     private lazy var ratingStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [productRatingRateLabel,
                                                        productRatingCountLabel])
@@ -69,8 +64,26 @@ class ProductDetailView: UIView {
         return stackView
     }()
     
+    private lazy var addToCartButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Add to Cart", for: .normal)
+        button.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
+        return button
+    }()
+    
+
+//    private lazy var addToCartStackView: UIStackView = {
+//       let stackView = UIStackView(arrangedSubviews: [quantityStackView, addToCartButton])
+//        stackView.axis = .vertical
+//        stackView.distribution = .fillEqually
+//        stackView.alignment = .center
+//        stackView.spacing = stackViewSpacing + CGFloat(bottomSpacing)
+//        return stackView
+//    }()
+    
+    // MARK: - Initilization
+    
     override init(frame: CGRect) {
-        self.product = Product()
         super.init(frame: frame)
         
         //Adding subviews
@@ -85,6 +98,11 @@ class ProductDetailView: UIView {
             make.top.equalTo(productImageView.snp.bottom)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+        }
+        addSubview(addToCartButton)
+        addToCartButton.snp.makeConstraints() { make in
+            make.top.equalTo(productDetailsStackView.snp.bottom).offset(offset)
+            make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(bottomInset)
         }
     }
@@ -93,8 +111,17 @@ class ProductDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Delegate Methods
+    
+    @objc private func didTapAddToCartButton(_ sender: UIButton) {
+        delegate?.productDetailView(self, didTapAddToCartButton: sender)
+    }
+    
     // Drawing Constants
     private let inset: CGFloat = 10
+    private let offset: CGFloat = 10
     private let stackViewSpacing: CGFloat = 10
     private let bottomInset: CGFloat = 50
+    private let bottomSpacing: CGFloat = 10
+
 }
