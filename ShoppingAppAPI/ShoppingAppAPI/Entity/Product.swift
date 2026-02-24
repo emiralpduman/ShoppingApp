@@ -1,13 +1,13 @@
 //
 //  Product.swift
-//  Shopping App
+//  Shopping App API
 //
 //  Created by Emiralp Duman on 3.11.2022.
 //
 
 import Foundation
 
-struct Product: Decodable {
+public struct Product: Decodable {
     let id: Int?
     let title: String?
     let price: Double?
@@ -17,7 +17,7 @@ struct Product: Decodable {
     let rating: Rating?
 }
 
-struct Rating: Decodable {
+public struct Rating: Decodable {
     let rate: Double?
     let count: Int?
 }
