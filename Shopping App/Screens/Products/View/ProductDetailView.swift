@@ -68,6 +68,8 @@ final class ProductDetailView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Add to Cart", for: .normal)
         button.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
+        button.backgroundColor = UIColor(named: "primary")
+        button.tintColor = .white
         return button
     }()
     

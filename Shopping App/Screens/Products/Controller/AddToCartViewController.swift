@@ -9,6 +9,7 @@ import UIKit
 
 protocol PresentationDelegate {
     func didSwipeDown()
+    func didTapAddToCart(quantity: Int)
 }
 
 final class AddToCartViewController: UIViewController {
@@ -42,7 +43,8 @@ extension AddToCartViewController: AddToCartViewDelegate {
     }
     
     func addToCartView(_ view: AddToCartView, didTapAddButton: UIButton) {
-        print("Added to cart")
+        presentationDelegate?.didTapAddToCart(quantity: mainView.quantity)
+        
     }
     
     

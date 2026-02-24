@@ -11,5 +11,14 @@ import RealmSwift
 protocol RealmReachable { }
 
 extension RealmReachable {
-    var realm: Realm { try! Realm() }
+    var realm: Realm {
+        
+        
+        let config = Realm.Configuration(
+          schemaVersion: 0,
+          deleteRealmIfMigrationNeeded: true
+        )
+        Realm.Configuration.defaultConfiguration = config
+        
+        return try! Realm() }
 }

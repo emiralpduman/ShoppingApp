@@ -53,6 +53,8 @@ final class AddToCartView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Add", for: .normal)
         button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+        button.backgroundColor = UIColor(named: "primary")
+        button.tintColor = .white
         return button
     }()
     
