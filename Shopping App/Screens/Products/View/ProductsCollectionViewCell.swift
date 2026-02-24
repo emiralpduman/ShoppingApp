@@ -15,14 +15,14 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
     let labelVerticalInsetWRTImage: CGFloat = 10
     
     //MARK: - Properties
-    var product: Product? {
+    var product: ProductEntity? {
         didSet {
-            guard let product = product, let image = product.image, let price = product.price else {
+            guard let product = product else {
                 fatalError("Product information could not be received.")
             }
-            productImageView.kf.setImage(with: URL(string: image ))
+            productImageView.kf.setImage(with: URL(string: product.image ))
             productNameLabel.text = product.title
-            productPriceLabel.text = String(price)
+            productPriceLabel.text = String(product.price)
         }
     }
     
