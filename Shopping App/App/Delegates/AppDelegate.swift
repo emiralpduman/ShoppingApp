@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupLandingWindow()
+        FirebaseApp.configure()
 
         return true
     }
@@ -32,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupLandingWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
 //        let viewModel = ProductsViewModel(products: self.products)
-        let viewModel = ProductsViewModel()
-        let viewController = ProductsViewController(viewModel: viewModel)
+//        let viewModel = ProductsViewModel()
+        let viewController = AuthViewController()
                 
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
