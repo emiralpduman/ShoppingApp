@@ -16,9 +16,8 @@ protocol ProductsViewModelDelegate: AnyObject {
 final class ProductsViewModel: RealmReachable {
     var products: [ProductEntity] = []
     weak var delegate: ProductsViewModelDelegate?
-    
+
     init() {
         products = realm.objects(ProductEntity.self).map { $0 }
     }
-    
 }

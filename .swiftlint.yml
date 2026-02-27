@@ -1,0 +1,101 @@
+# SwiftLint Configuration
+# https://github.com/realm/SwiftLint
+
+# Paths to include
+included:
+  - Shopping App
+  - ShoppingAppAPI
+
+# Paths to exclude
+excluded:
+  - Pods
+  - .build
+  - DerivedData
+  - Carthage
+  - vendor
+  - "Shopping App/App/Views" # LaunchScreen.storyboard
+
+# Rules
+disabled_rules:
+  - trailing_comma
+  - todo
+
+opt_in_rules:
+  - closure_spacing
+  - contains_over_first_not_nil
+  - empty_count
+  - empty_string
+  - fatal_error_message
+  - first_where
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - last_where
+  - modifier_order
+  - overridden_super_call
+  - private_action
+  - private_outlet
+  - redundant_nil_coalescing
+  - sorted_first_last
+  - toggle_bool
+  - unowned_variable_capture
+  - vertical_whitespace_closing_braces
+
+# Rule configurations
+line_length:
+  warning: 150
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+  ignores_interpolated_strings: true
+
+file_length:
+  warning: 400
+  error: 600
+
+type_body_length:
+  warning: 300
+  error: 500
+
+function_body_length:
+  warning: 50
+  error: 80
+
+function_parameter_count:
+  warning: 6
+  error: 8
+
+type_name:
+  min_length: 3
+  max_length:
+    warning: 50
+    error: 60
+
+identifier_name:
+  min_length:
+    warning: 2
+    error: 1
+  max_length:
+    warning: 50
+    error: 60
+  excluded:
+    - id
+    - _id
+    - x
+    - y
+    - i
+    - j
+    - k
+
+nesting:
+  type_level: 3
+  function_level: 3
+
+cyclomatic_complexity:
+  warning: 15
+  error: 25
+
+large_tuple:
+  warning: 3
+  error: 4
+
+reporter: "xcode"

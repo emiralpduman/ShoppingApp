@@ -16,28 +16,31 @@ public enum FakeStoreService {
 
 extension FakeStoreService: TargetType {
     public var baseURL: URL {
-        return URL(string: "https://fakestoreapi.com")!
+        guard let url = URL(string: "https://fakestoreapi.com") else {
+            fatalError("Invalid base URL")
+        }
+        return url
     }
-    
+
     public var path: String {
         switch self {
         case .getProducts:
             return "/products"
         }
     }
-    
+
     public var method: Moya.Method {
         .get
     }
-    
+
     public var task: Moya.Task {
         switch self {
         case .getProducts:
             return .requestPlain
         }
     }
-    
-    public var headers: [String : String]? {
+
+    public var headers: [String: String]? {
         nil
     }
 }

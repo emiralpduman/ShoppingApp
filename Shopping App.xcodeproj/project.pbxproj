@@ -444,6 +444,7 @@
 				F39B4D91290EF2C100F84F4A /* Sources */,
 				F39B4D92290EF2C100F84F4A /* Frameworks */,
 				F39B4D93290EF2C100F84F4A /* Resources */,
+				F3D1E2F429270002000A1B2D /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -490,6 +491,7 @@
 				F39B4DC629100D3800F84F4A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F34CC422291582E5000128FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F3D1E2F329270001000A1B2C /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = F39B4D96290EF2C100F84F4A /* Products */;
 			projectDirPath = "";
@@ -563,6 +565,28 @@
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F3D1E2F429270002000A1B2D /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# SwiftLint - Run Script Build Phase\n# Finds SwiftLint from SPM artifacts or system PATH\n\nSWIFTLINT=$(find \"${BUILD_DIR%Build/*}SourcePackages/artifacts\" -name \"swiftlint\" -type f -perm +111 2>/dev/null | head -1)\n\nif [ -z \"$SWIFTLINT\" ]; then\n    SWIFTLINT=$(command -v swiftlint)\nfi\n\nif [ -z \"$SWIFTLINT\" ]; then\n    echo \"warning: SwiftLint not found. Resolve SPM packages or install via Homebrew.\"\n    exit 0\nfi\n\n\"$SWIFTLINT\" lint --config \"${SRCROOT}/.swiftlint.yml\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		F39B4DA7290EF2C200F84F4A /* Debug */ = {
@@ -789,6 +813,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.12.0;
+			};
+		};
+		F3D1E2F329270001000A1B2C /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

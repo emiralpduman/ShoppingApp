@@ -19,23 +19,10 @@ class LaunchViewModel: RealmReachable {
     weak var delegate: LaunchViewModelDelegate?
     private var products: [Product] = []
 
-    
     // MARK: - Methods
     func fetchProducts() {
         delegate?.willFetchProducts()
 
-        
-//        // Get products from json file
-//        let url = Bundle.main.url(forResource: "products", withExtension: "json")!
-//        do {
-//            let jsonData = try Data(contentsOf: url)
-//            self.products = try JSONDecoder().decode([Product].self, from: jsonData )
-//        }
-//        catch {
-//            fatalError("JSON data could not be received from JSON file.")
-//        }
-        
-        
         fakeStoreAPI.request(.getProducts) { result in
             switch result {
             case .failure(let error):
@@ -52,15 +39,15 @@ class LaunchViewModel: RealmReachable {
 
                         let productEntity = ProductEntity()
                         productEntity._id = product.id ?? .zero
-                        productEntity.title = product.title!
-                        productEntity.price = product.price!
-                        productEntity.desc = product.description!
-                        productEntity.category = product.category!
-                        productEntity.image = product.image!
+                        productEntity.title = product.title ?? ""
+                        productEntity.price = product.price ?? 0
+                        productEntity.desc = product.description ?? ""
+                        productEntity.category = product.category ?? ""
+                        productEntity.image = product.image ?? ""
 
                         let ratingEntity = RatingEntity()
-                        ratingEntity.rate = product.rating!.rate!
-                        ratingEntity.count = product.rating!.count!
+                        ratingEntity.rate = product.rating?.rate ?? 0
+                        ratingEntity.count = product.rating?.count ?? 0
 
                         productEntity.rating = ratingEntity
 
@@ -78,10 +65,5 @@ class LaunchViewModel: RealmReachable {
                 }
             }
         }
-        
-        
-        
-        
     }
-
 }

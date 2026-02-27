@@ -29,8 +29,7 @@ final class AuthView: UIView {
             }
         }
     }
-    
-    
+
     // MARK: - Visual Elements
     lazy var userNameTextField: UITextField = {
         let textfield = UITextField()
@@ -77,7 +76,7 @@ final class AuthView: UIView {
         stackView.spacing = defaultStackViewSpacing
         return stackView
     }()
-        
+
     private lazy var signButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Sign-In", for: .normal)
@@ -85,9 +84,8 @@ final class AuthView: UIView {
         button.tintColor = .white
         button.addTarget(self, action: #selector(didButtonTouchDown), for: .touchDown)
         return button
-        
     }()
-    
+
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator: UIActivityIndicatorView
         if #available(iOS 13, *) {
@@ -98,7 +96,7 @@ final class AuthView: UIView {
         indicator.hidesWhenStopped = true
         return indicator
     }()
-    
+
     private lazy var containerStackView: UIStackView = {
        let stackView = UIStackView(arrangedSubviews: [signingTypeSegmentedControl, textFieldsStackView, activityIndicator, signButton])
         stackView.axis = .vertical
@@ -106,14 +104,14 @@ final class AuthView: UIView {
         stackView.spacing = defaultStackViewSpacing
         return stackView
     }()
-    
+
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-                
+
         addSubview(containerStackView)
-        containerStackView.snp.makeConstraints() { make in
+        containerStackView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide)
             make.leading.equalToSuperview().inset(defaultInset)
             make.trailing.equalToSuperview().inset(defaultInset)
@@ -122,7 +120,7 @@ final class AuthView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Methods
     @objc private func didSegmentedControlValueChange() {
         guard let modeIndex = SigningMode(rawValue: signingTypeSegmentedControl.selectedSegmentIndex) else {
@@ -131,16 +129,15 @@ final class AuthView: UIView {
         signingMode = modeIndex
         delegate?.didValueChange(signingTypeSegmentedControl)
     }
-    
+
     @objc private func didButtonTouchDown() {
         delegate?.didButtonPressed(signButton)
     }
-    
-    
-    // MARK:  - Drawing Constants
+
+    // MARK: - Drawing Constants
     private let defaultStackViewSpacing: CGFloat = 20
     private let defaultInset: CGFloat = 10
-    
+
     enum SigningMode: Int {
         case signIn = 0, signUp
     }

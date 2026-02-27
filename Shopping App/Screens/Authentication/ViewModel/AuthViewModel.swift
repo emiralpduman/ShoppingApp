@@ -9,41 +9,34 @@ import Foundation
 import FirebaseAuth
 import RealmSwift
 
-protocol AuthViewModelDelegate {
+protocol AuthViewModelDelegate: AnyObject {
     func didErrorOccur(error: Error)
     func didSignUpSuccesfully()
     func didSignInSuccesfully()
     func willRequestService()
 }
 
-
 final class AuthViewModel: RealmReachable {
-    var delegate: AuthViewModelDelegate?
-    
+    weak var delegate: AuthViewModelDelegate?
+
     func signIn(email: String, password: String) {
         delegate?.willRequestService()
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { _, error in
             if let error = error {
                 self.delegate?.didErrorOccur(error: error)
             } else {
                 let users = self.realm.objects(UserEntity.self)
-                
-                var isNotInDatabase = true
-                
-                for user in users {
-                    if user.emailAddress == email {
-                        isNotInDatabase = false
-                    }
-                }
-                
+
+                let isNotInDatabase = !users.contains(where: { $0.emailAddress == email })
+
                 if isNotInDatabase {
                     let user = UserEntity()
                     if let currentUser = Auth.auth().currentUser {
-                        user.emailAddress = currentUser.email!
+                        user.emailAddress = currentUser.email ?? ""
                         user._id = currentUser.uid
-                        user.userName = currentUser.email!
+                        user.userName = currentUser.email ?? ""
                     }
-                    
+
                     do {
                         try self.realm.write {
                             self.realm.add(user)
@@ -54,13 +47,10 @@ final class AuthViewModel: RealmReachable {
                     }
                 }
                 self.delegate?.didSignInSuccesfully()
-                
-
             }
         }
     }
-     
-    
+
     func signUp(email: String, password: String, userName: String) {
         delegate?.willRequestService()
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -69,17 +59,17 @@ final class AuthViewModel: RealmReachable {
             } else {
                 self.delegate?.didSignUpSuccesfully()
             }
-            
+
             guard let uid = authResult?.user.uid else {
                 self.delegate?.didErrorOccur(error: AuthViewModelError.noUid)
                 return
             }
-            
+
             let user = UserEntity()
             user._id = uid
             user.userName = userName
             user.emailAddress = email
-            
+
             do {
                 try self.realm.write {
                     self.realm.add(user)
