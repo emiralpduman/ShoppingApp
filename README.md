@@ -4,6 +4,7 @@
 ![Platform](https://img.shields.io/badge/Platform-iOS%2015+-blue?style=flat&logo=apple&logoColor=white)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-6C757D?style=flat)
 ![UIKit](https://img.shields.io/badge/UI-Programmatic%20UIKit-2396F3?style=flat)
+![SwiftLint](https://img.shields.io/badge/SwiftLint-Enabled-B1178E?style=flat&logo=swift&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 An e-commerce iOS app where users can browse products, view details, manage a shopping cart, and place orders. Built as the final project for the **Patika.dev Pazarama iOS Bootcamp** (Oct – Nov 2022). All UI is written programmatically with UIKit and SnapKit — no storyboards.
