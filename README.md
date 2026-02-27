@@ -91,6 +91,21 @@ open Shopping\ App.xcworkspace
 
 All dependencies are resolved automatically via Swift Package Manager.
 
+## Setup
+
+This app requires a Firebase project for authentication. The `GoogleService-Info.plist` file is **not** included in the repository for security reasons.
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project (or use an existing one).
+2. Add an iOS app with your bundle identifier.
+3. Download the generated `GoogleService-Info.plist` file.
+4. Place it at:
+   ```
+   Shopping App/App/Plists/GoogleService-Info.plist
+   ```
+5. Build and run. The plist is gitignored and will not be committed.
+
+> See `GoogleService-Info-example.plist` in the same directory for the expected structure.
+
 ## License
 
 Distributed under the MIT License.
