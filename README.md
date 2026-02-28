@@ -1,5 +1,6 @@
 # ShoppingApp
 
+![CI](https://github.com/emiralpduman/ShoppingAppAfterBootcamp/actions/workflows/ci.yml/badge.svg)
 ![Swift](https://img.shields.io/badge/Swift-5.7-F05138?style=flat&logo=swift&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2015+-blue?style=flat&logo=apple&logoColor=white)
 ![Architecture](https://img.shields.io/badge/Architecture-MVVM-6C757D?style=flat)
