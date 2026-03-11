@@ -46,7 +46,28 @@
 		F39F10852918B9220047A85B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10842918B9220047A85B /* ProfileView.swift */; };
 		F39F10872918B9300047A85B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10862918B92F0047A85B /* ProfileViewController.swift */; };
 		F39F108A2918BDB90047A85B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F10892918BDB90047A85B /* ProfileViewModel.swift */; };
+
+		BA808AF90403FD4F66EE4A64 /* InMemoryRealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7F186C0241C001492DCE86 /* InMemoryRealmHelper.swift */; };
+		55C789270C992FEB9B84DFA4 /* ProductEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A590349686A36342C13B94 /* ProductEntityTests.swift */; };
+		6079710BF551F04702A00D48 /* RatingEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1D8137A5EAAEF8F5054B2 /* RatingEntityTests.swift */; };
+		0328034C8AAAB1E821A98AE4 /* UserEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528474AB4504A6407980797A /* UserEntityTests.swift */; };
+		81F7EB99462BB0EA9C06DDAF /* OrderEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57444D33A14AB87F2D33F2A4 /* OrderEntityTests.swift */; };
+		9A5534F0FBD0F48DC8039407 /* ProductDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AB69A0346AF4BB0E8497C /* ProductDecodableTests.swift */; };
+		9F014E6D123352818E20F51C /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F3757828291537AB0017B045 /* products.json */; };
+		7CD257C691BA740795E98064 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8706A08AF8701F3F52437BBE /* Realm */; };
+		B47F6AD8A332DEBE9B9E8FA8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0E92E1499C9FDA1BAB842B1F /* RealmSwift */; };
 /* End PBXBuildFile section */
+
+
+/* Begin PBXContainerItemProxy section */
+		5D0FA6ACB808653E6E45A1D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F39B4D8D290EF2C100F84F4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F39B4D94290EF2C100F84F4A;
+			remoteInfo = "Shopping App";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F32DF1E82911913C00602638 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -85,6 +106,14 @@
 		F39F10842918B9220047A85B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F39F10862918B92F0047A85B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F39F10892918BDB90047A85B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+
+		0BA6D0B86422417171B08B7D /* Shopping App Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopping App Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB7F186C0241C001492DCE86 /* InMemoryRealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryRealmHelper.swift; sourceTree = "<group>"; };
+		86A590349686A36342C13B94 /* ProductEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntityTests.swift; sourceTree = "<group>"; };
+		71A1D8137A5EAAEF8F5054B2 /* RatingEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingEntityTests.swift; sourceTree = "<group>"; };
+		528474AB4504A6407980797A /* UserEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityTests.swift; sourceTree = "<group>"; };
+		57444D33A14AB87F2D33F2A4 /* OrderEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEntityTests.swift; sourceTree = "<group>"; };
+		623AB69A0346AF4BB0E8497C /* ProductDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDecodableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +127,16 @@
 				F375781F29152EFF0017B045 /* Realm in Frameworks */,
 				F375782129152EFF0017B045 /* RealmSwift in Frameworks */,
 				F39B4DC1290F1AAE00F84F4A /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+
+		BCFD3C1F23E754F757801A48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CD257C691BA740795E98064 /* Realm in Frameworks */,
+				B47F6AD8A332DEBE9B9E8FA8 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				F39B4D97290EF2C100F84F4A /* Shopping App */,
+				15BB61C9C5C592A12A142C90 /* Shopping App Tests */,
 				F37578272915378F0017B045 /* Mock Data */,
 				F39B4D96290EF2C100F84F4A /* Products */,
 				F3757803291445270017B045 /* Frameworks */,
@@ -220,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				F39B4D95290EF2C100F84F4A /* Shopping App.app */,
+				0BA6D0B86422417171B08B7D /* Shopping App Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -434,6 +475,35 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9D73DCE3EEF1974EEF72D123 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB7F186C0241C001492DCE86 /* InMemoryRealmHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FFA47D4A697917ACFCF6A350 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86A590349686A36342C13B94 /* ProductEntityTests.swift */,
+				71A1D8137A5EAAEF8F5054B2 /* RatingEntityTests.swift */,
+				528474AB4504A6407980797A /* UserEntityTests.swift */,
+				57444D33A14AB87F2D33F2A4 /* OrderEntityTests.swift */,
+				623AB69A0346AF4BB0E8497C /* ProductDecodableTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		15BB61C9C5C592A12A142C90 /* Shopping App Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9D73DCE3EEF1974EEF72D123 /* Helpers */,
+				FFA47D4A697917ACFCF6A350 /* Models */,
+			);
+			path = "Shopping App Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -462,6 +532,29 @@
 			productReference = F39B4D95290EF2C100F84F4A /* Shopping App.app */;
 			productType = "com.apple.product-type.application";
 		};
+
+		E9D95D8703A4CBDF847C2588 /* Shopping App Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4509B90BDB50B53E86016709 /* Build configuration list for PBXNativeTarget "Shopping App Tests" */;
+			buildPhases = (
+				C2B0EDFE51E31DFE409DB7D3 /* Sources */,
+				BCFD3C1F23E754F757801A48 /* Frameworks */,
+				64CC51937722E1F3C4FE9815 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53BE61E078BE513A93AB374D /* PBXTargetDependency */,
+			);
+			name = "Shopping App Tests";
+			packageProductDependencies = (
+				8706A08AF8701F3F52437BBE /* Realm */,
+				0E92E1499C9FDA1BAB842B1F /* RealmSwift */,
+			);
+			productName = "Shopping App Tests";
+			productReference = 0BA6D0B86422417171B08B7D /* Shopping App Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -472,7 +565,11 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					F39B4D94290EF2C100F84F4A = {
+					E9D95D8703A4CBDF847C2588 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = F39B4D94290EF2C100F84F4A;
+					};
+				F39B4D94290EF2C100F84F4A = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
@@ -498,6 +595,7 @@
 			projectRoot = "";
 			targets = (
 				F39B4D94290EF2C100F84F4A /* Shopping App */,
+				E9D95D8703A4CBDF847C2588 /* Shopping App Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -511,6 +609,15 @@
 				F34CC42129158271000128FE /* GoogleService-Info.plist in Resources */,
 				F39B4DA5290EF2C200F84F4A /* LaunchScreen.storyboard in Resources */,
 				F39B4DA2290EF2C200F84F4A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+
+		64CC51937722E1F3C4FE9815 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F014E6D123352818E20F51C /* products.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +660,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+
+		C2B0EDFE51E31DFE409DB7D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA808AF90403FD4F66EE4A64 /* InMemoryRealmHelper.swift in Sources */,
+				55C789270C992FEB9B84DFA4 /* ProductEntityTests.swift in Sources */,
+				6079710BF551F04702A00D48 /* RatingEntityTests.swift in Sources */,
+				0328034C8AAAB1E821A98AE4 /* UserEntityTests.swift in Sources */,
+				81F7EB99462BB0EA9C06DDAF /* OrderEntityTests.swift in Sources */,
+				9A5534F0FBD0F48DC8039407 /* ProductDecodableTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -587,6 +708,15 @@
 			shellScript = "# SwiftLint - Run Script Build Phase\n# Finds SwiftLint from SPM artifacts or system PATH\n\nSWIFTLINT=$(find \"${BUILD_DIR%Build/*}SourcePackages/artifacts\" -name \"swiftlint\" -type f -perm +111 2>/dev/null | head -1)\n\nif [ -z \"$SWIFTLINT\" ]; then\n    SWIFTLINT=$(command -v swiftlint)\nfi\n\nif [ -z \"$SWIFTLINT\" ]; then\n    echo \"warning: SwiftLint not found. Resolve SPM packages or install via Homebrew.\"\n    exit 0\nfi\n\n\"$SWIFTLINT\" lint --config \"${SRCROOT}/.swiftlint.yml\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
+
+
+/* Begin PBXTargetDependency section */
+		53BE61E078BE513A93AB374D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F39B4D94290EF2C100F84F4A /* Shopping App */;
+			targetProxy = 5D0FA6ACB808653E6E45A1D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F39B4DA7290EF2C200F84F4A /* Debug */ = {
@@ -759,6 +889,46 @@
 			};
 			name = Release;
 		};
+		2B35F8E63D40AFD8C4DC8AB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44R27BB6SM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "duman.emiralp.Shopping-App-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopping App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shopping App";
+			};
+			name = Debug;
+		};
+		C3B0ACDFB8D4CEDE3CB246AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 44R27BB6SM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "duman.emiralp.Shopping-App-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopping App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shopping App";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -776,6 +946,15 @@
 			buildConfigurations = (
 				F39B4DAA290EF2C200F84F4A /* Debug */,
 				F39B4DAB290EF2C200F84F4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4509B90BDB50B53E86016709 /* Build configuration list for PBXNativeTarget "Shopping App Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B35F8E63D40AFD8C4DC8AB0 /* Debug */,
+				C3B0ACDFB8D4CEDE3CB246AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -850,6 +1029,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F39B4DC629100D3800F84F4A /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		8706A08AF8701F3F52437BBE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		0E92E1499C9FDA1BAB842B1F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F375781D29152EFE0017B045 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

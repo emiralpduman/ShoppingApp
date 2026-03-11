@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16EE44AD8CB39540A671CCBD /* FakeStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2D4659B01F8B035E1735F8 /* FakeStoreServiceTests.swift */; };
+		212246E0AABF3009EFD66EAA /* ProductAPIModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02454F63B592C387D3F95401 /* ProductAPIModelTests.swift */; };
 		F3416C1E2913D9E400FBDD8C /* ShoppingAppAPI.docc in Sources */ = {isa = PBXBuildFile; fileRef = F3416C1D2913D9E400FBDD8C /* ShoppingAppAPI.docc */; };
 		F3416C242913D9E400FBDD8C /* ShoppingAppAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3416C192913D9E400FBDD8C /* ShoppingAppAPI.framework */; };
 		F3416C292913D9E400FBDD8C /* ShoppingAppAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3416C282913D9E400FBDD8C /* ShoppingAppAPITests.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02454F63B592C387D3F95401 /* ProductAPIModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductAPIModelTests.swift; path = ShoppingAppAPITests/ProductAPIModelTests.swift; sourceTree = SOURCE_ROOT; };
+		4B2D4659B01F8B035E1735F8 /* FakeStoreServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeStoreServiceTests.swift; path = ShoppingAppAPITests/FakeStoreServiceTests.swift; sourceTree = SOURCE_ROOT; };
 		F3416C192913D9E400FBDD8C /* ShoppingAppAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShoppingAppAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3416C1C2913D9E400FBDD8C /* ShoppingAppAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShoppingAppAPI.h; sourceTree = "<group>"; };
 		F3416C1D2913D9E400FBDD8C /* ShoppingAppAPI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShoppingAppAPI.docc; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				F3416C1B2913D9E400FBDD8C /* ShoppingAppAPI */,
 				F3416C272913D9E400FBDD8C /* ShoppingAppAPITests */,
 				F3416C1A2913D9E400FBDD8C /* Products */,
+				4B2D4659B01F8B035E1735F8 /* FakeStoreServiceTests.swift */,
+				02454F63B592C387D3F95401 /* ProductAPIModelTests.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,14 +91,6 @@
 			path = ShoppingAppAPI;
 			sourceTree = "<group>";
 		};
-		F3416C3B2913DB7000FBDD8C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				F3416C342913DB6000FBDD8C /* FakeStoreService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		F3416C272913D9E400FBDD8C /* ShoppingAppAPITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +105,14 @@
 				F3416C392913EB5200FBDD8C /* Product.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		F3416C3B2913DB7000FBDD8C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F3416C342913DB6000FBDD8C /* FakeStoreService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3416C292913D9E400FBDD8C /* ShoppingAppAPITests.swift in Sources */,
+				16EE44AD8CB39540A671CCBD /* FakeStoreServiceTests.swift in Sources */,
+				212246E0AABF3009EFD66EAA /* ProductAPIModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +396,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ShoppingAppAPITests";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "duman.emiralp.Shopping-App-API";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -417,6 +426,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ShoppingAppAPITests";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "duman.emiralp.Shopping-App-API";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -435,6 +445,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44R27BB6SM;
 				GENERATE_INFOPLIST_FILE = YES;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ShoppingAppAPITests";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "duman.emiralp.Shopping-App-APITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -452,6 +463,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44R27BB6SM;
 				GENERATE_INFOPLIST_FILE = YES;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/ShoppingAppAPITests";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "duman.emiralp.Shopping-App-APITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
