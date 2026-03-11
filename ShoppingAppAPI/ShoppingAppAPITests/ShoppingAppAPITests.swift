@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Shopping_App_API
+@testable import ShoppingAppAPI
 
 final class ShoppingAppAPITests: XCTestCase {
 

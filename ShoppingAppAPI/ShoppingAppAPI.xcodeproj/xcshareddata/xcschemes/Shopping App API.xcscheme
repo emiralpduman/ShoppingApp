@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F3416C182913D9E400FBDD8C"
-               BuildableName = "Shopping_App_API.framework"
-               BlueprintName = "Shopping App API"
-               ReferencedContainer = "container:Shopping App API.xcodeproj">
+               BuildableName = "ShoppingAppAPI.framework"
+               BlueprintName = "ShoppingAppAPI"
+               ReferencedContainer = "container:ShoppingAppAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F3416C222913D9E400FBDD8C"
-               BuildableName = "Shopping App APITests.xctest"
-               BlueprintName = "Shopping App APITests"
-               ReferencedContainer = "container:Shopping App API.xcodeproj">
+               BuildableName = "ShoppingAppAPITests.xctest"
+               BlueprintName = "ShoppingAppAPITests"
+               ReferencedContainer = "container:ShoppingAppAPI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F3416C182913D9E400FBDD8C"
-            BuildableName = "Shopping_App_API.framework"
-            BlueprintName = "Shopping App API"
-            ReferencedContainer = "container:Shopping App API.xcodeproj">
+            BuildableName = "ShoppingAppAPI.framework"
+            BlueprintName = "ShoppingAppAPI"
+            ReferencedContainer = "container:ShoppingAppAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
