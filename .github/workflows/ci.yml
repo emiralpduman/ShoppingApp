@@ -108,23 +108,24 @@ jobs:
             -resultBundlePath TestResults/ShoppingAppAPI.xcresult \
             test
 
-      - name: Export coverage from xcresult
+      - name: Convert coverage to Cobertura XML
         if: always() && steps.build.outcome == 'success'
         run: |
+          brew install xcresultparser
           if [ -d TestResults/ShoppingApp.xcresult ]; then
-            xcrun xccov view --report --json \
-              TestResults/ShoppingApp.xcresult > TestResults/app-coverage.json
+            xcresultparser --output-format cobertura \
+              TestResults/ShoppingApp.xcresult > TestResults/app-coverage.xml
           fi
           if [ -d TestResults/ShoppingAppAPI.xcresult ]; then
-            xcrun xccov view --report --json \
-              TestResults/ShoppingAppAPI.xcresult > TestResults/api-coverage.json
+            xcresultparser --output-format cobertura \
+              TestResults/ShoppingAppAPI.xcresult > TestResults/api-coverage.xml
           fi
 
       - name: Upload App coverage to Codecov
         if: always() && steps.build.outcome == 'success'
         uses: codecov/codecov-action@v5
         with:
-          files: TestResults/app-coverage.json
+          files: TestResults/app-coverage.xml
           flags: app
           disable_search: true
           fail_ci_if_error: false
@@ -134,7 +135,7 @@ jobs:
         if: always() && steps.build.outcome == 'success'
         uses: codecov/codecov-action@v5
         with:
-          files: TestResults/api-coverage.json
+          files: TestResults/api-coverage.xml
           flags: api
           disable_search: true
           fail_ci_if_error: false
