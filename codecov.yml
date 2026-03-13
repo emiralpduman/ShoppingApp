@@ -1,0 +1,13 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 60%
+
+ignore:
+  - "SourcePackages/**"
+  - "DerivedData/**"
+  - "Pods/**"
+  - "**Tests/**"
+  - "**UITests/**"
+  - ".build/**"
