@@ -111,8 +111,7 @@ jobs:
         if: always()
         uses: codecov/codecov-action@v5
         with:
-          xcode: true
-          xcode_archive_path: TestResults/ShoppingApp.xcresult
+          swift_project: TestResults/ShoppingApp.xcresult
           flags: app
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -121,8 +120,7 @@ jobs:
         if: always()
         uses: codecov/codecov-action@v5
         with:
-          xcode: true
-          xcode_archive_path: TestResults/ShoppingAppAPI.xcresult
+          swift_project: TestResults/ShoppingAppAPI.xcresult
           flags: api
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
