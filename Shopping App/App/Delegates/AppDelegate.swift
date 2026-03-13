@@ -17,12 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupLandingWindow()
-        FirebaseApp.configure()
+        if !isTestEnvironment {
+            FirebaseApp.configure()
+        }
 
         UITabBar.appearance().tintColor = UIColor(named: "primary")
         UINavigationBar.appearance().tintColor = UIColor(named: "primary")
 
         return true
+    }
+
+    private var isTestEnvironment: Bool {
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+            || ProcessInfo.processInfo.environment["CI"] != nil
     }
 
     private func setupLandingWindow() {

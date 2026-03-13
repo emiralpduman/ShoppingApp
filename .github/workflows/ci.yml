@@ -69,6 +69,7 @@ jobs:
           fi
 
       - name: Build
+        id: build
         run: |
           xcodebuild -workspace "Shopping App.xcworkspace" \
             -scheme "Shopping App" \
@@ -89,9 +90,11 @@ jobs:
             -parallel-testing-enabled NO \
             -enableCodeCoverage YES \
             -resultBundlePath TestResults/ShoppingApp.xcresult \
+            -skip-testing "Shopping App UITests" \
             test
 
       - name: Test Shopping App API
+        if: always() && steps.build.outcome == 'success'
         run: |
           xcodebuild -workspace "Shopping App.xcworkspace" \
             -scheme "Shopping App API" \
@@ -104,19 +107,28 @@ jobs:
             -resultBundlePath TestResults/ShoppingAppAPI.xcresult \
             test
 
-      - name: Generate coverage report
-        run: |
-          xcrun xccov view --report --json TestResults/ShoppingApp.xcresult > TestResults/coverage-app.json
-          xcrun xccov view --report --json TestResults/ShoppingAppAPI.xcresult > TestResults/coverage-api.json
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+      - name: Upload App coverage to Codecov
+        if: always()
+        uses: codecov/codecov-action@v5
         with:
-          files: TestResults/coverage-app.json,TestResults/coverage-api.json
+          xcode: true
+          xcode_archive_path: TestResults/ShoppingApp.xcresult
+          flags: app
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload API coverage to Codecov
+        if: always()
+        uses: codecov/codecov-action@v5
+        with:
+          xcode: true
+          xcode_archive_path: TestResults/ShoppingAppAPI.xcresult
+          flags: api
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: SwiftLint
+        if: always()
         run: |
           brew install swiftlint
           swiftlint lint --config .swiftlint.yml --strict

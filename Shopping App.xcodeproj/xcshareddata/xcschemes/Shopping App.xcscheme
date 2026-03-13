@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Shopping App.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D1A2B3C4D5E6F7A8B9C0D1E2"
+               BuildableName = "Shopping App UITests.xctest"
+               BlueprintName = "Shopping App UITests"
+               ReferencedContainer = "container:Shopping App.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
