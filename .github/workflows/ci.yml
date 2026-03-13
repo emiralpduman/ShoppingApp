@@ -126,6 +126,7 @@ jobs:
         with:
           files: TestResults/app-coverage.json
           flags: app
+          disable_search: true
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -135,6 +136,7 @@ jobs:
         with:
           files: TestResults/api-coverage.json
           flags: api
+          disable_search: true
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
