@@ -108,20 +108,30 @@ jobs:
             -resultBundlePath TestResults/ShoppingAppAPI.xcresult \
             test
 
+      - name: Export coverage from xcresult
+        if: always() && steps.build.outcome == 'success'
+        run: |
+          if [ -d TestResults/ShoppingApp.xcresult ]; then
+            xcrun xccov view --report --json TestResults/ShoppingApp.xcresult > TestResults/app-coverage.json
+          fi
+          if [ -d TestResults/ShoppingAppAPI.xcresult ]; then
+            xcrun xccov view --report --json TestResults/ShoppingAppAPI.xcresult > TestResults/api-coverage.json
+          fi
+
       - name: Upload App coverage to Codecov
-        if: always()
+        if: always() && steps.build.outcome == 'success'
         uses: codecov/codecov-action@v5
         with:
-          swift_project: TestResults/ShoppingApp.xcresult
+          files: TestResults/app-coverage.json
           flags: app
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload API coverage to Codecov
-        if: always()
+        if: always() && steps.build.outcome == 'success'
         uses: codecov/codecov-action@v5
         with:
-          swift_project: TestResults/ShoppingAppAPI.xcresult
+          files: TestResults/api-coverage.json
           flags: api
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
