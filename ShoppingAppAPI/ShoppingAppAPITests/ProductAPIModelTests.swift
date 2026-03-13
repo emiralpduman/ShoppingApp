@@ -3,7 +3,6 @@ import XCTest
 
 final class ProductAPIModelTests: XCTestCase {
 
-    // swiftlint:disable:next line_length
     private let completeJSON = """
     {
         "id": 1,
@@ -20,7 +19,7 @@ final class ProductAPIModelTests: XCTestCase {
     """
 
     func test_decodeCompleteProduct() throws {
-        let data = completeJSON.data(using: .utf8)!
+        let data = Data(completeJSON.utf8)
         let product = try JSONDecoder().decode(Product.self, from: data)
 
         XCTAssertEqual(product.id, 1)
@@ -33,11 +32,11 @@ final class ProductAPIModelTests: XCTestCase {
     }
 
     func test_decodePartialProduct() throws {
-        let json = """
+        let data = Data("""
         {"id": 99, "title": "Partial"}
-        """.data(using: .utf8)!
+        """.utf8)
 
-        let product = try JSONDecoder().decode(Product.self, from: json)
+        let product = try JSONDecoder().decode(Product.self, from: data)
         XCTAssertEqual(product.id, 99)
         XCTAssertEqual(product.title, "Partial")
         XCTAssertNil(product.price)
@@ -48,11 +47,11 @@ final class ProductAPIModelTests: XCTestCase {
     }
 
     func test_ratingDecode() throws {
-        let json = """
+        let data = Data("""
         {"rate": 4.1, "count": 259}
-        """.data(using: .utf8)!
+        """.utf8)
 
-        let rating = try JSONDecoder().decode(Rating.self, from: json)
+        let rating = try JSONDecoder().decode(Rating.self, from: data)
         XCTAssertEqual(rating.rate, 4.1)
         XCTAssertEqual(rating.count, 259)
     }
