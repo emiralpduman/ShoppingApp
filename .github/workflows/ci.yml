@@ -113,12 +113,10 @@ jobs:
         run: |
           if [ -d TestResults/ShoppingApp.xcresult ]; then
             xcrun xccov view --report --json \
-              --files-for "Shopping App" \
               TestResults/ShoppingApp.xcresult > TestResults/app-coverage.json
           fi
           if [ -d TestResults/ShoppingAppAPI.xcresult ]; then
             xcrun xccov view --report --json \
-              --files-for "Shopping App API" \
               TestResults/ShoppingAppAPI.xcresult > TestResults/api-coverage.json
           fi
 
