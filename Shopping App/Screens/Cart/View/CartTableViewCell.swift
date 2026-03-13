@@ -41,12 +41,21 @@ class CartTableViewCell: UITableViewCell {
     private var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.accessibilityIdentifier = "cartCell.image"
         return imageView
     }()
 
-    private var productTitleLabel = UILabel()
+    private var productTitleLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "cartCell.title"
+        return label
+    }()
 
-    private var productPriceLabel = UILabel()
+    private var productPriceLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "cartCell.price"
+        return label
+    }()
 
     private lazy var productInfoStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [productTitleLabel, productPriceLabel])
@@ -55,12 +64,17 @@ class CartTableViewCell: UITableViewCell {
         return stackView
     }()
 
-    private var productOrderAmountLabel = UILabel()
+    private var productOrderAmountLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "cartCell.amount"
+        return label
+    }()
 
     lazy var orderCountStepper: UIStepper = {
         let stepper = UIStepper()
         stepper.minimumValue = 0
         stepper.addTarget(self, action: #selector(didTapCountStepper), for: .valueChanged)
+        stepper.accessibilityIdentifier = "cartCell.stepper"
         return stepper
     }()
 

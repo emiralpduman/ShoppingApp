@@ -14,10 +14,12 @@ class LaunchView: UIView {
         let image = UIImage(named: "AppIcon")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
+        imageView.accessibilityIdentifier = "launch.appIcon"
         return imageView
     }()
     lazy var activityIndicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .white)
+        indicator.accessibilityIdentifier = "launch.activityIndicator"
         return indicator
     }()
 

@@ -26,22 +26,41 @@ final class ProductDetailView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.accessibilityIdentifier = "productDetail.image"
         return imageView
     }()
     lazy var productNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.accessibilityIdentifier = "productDetail.name"
         return label
     }()
     lazy var productPriceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.accessibilityIdentifier = "productDetail.price"
         return label
     }()
-    var productDescriptionLabel = UILabel()
-    var productCategoryLabel = UILabel()
-    var productRatingRateLabel = UILabel()
-    var productRatingCountLabel = UILabel()
+    var productDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "productDetail.description"
+        return label
+    }()
+    var productCategoryLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "productDetail.category"
+        return label
+    }()
+    var productRatingRateLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "productDetail.ratingRate"
+        return label
+    }()
+    var productRatingCountLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "productDetail.ratingCount"
+        return label
+    }()
 
     private lazy var ratingStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [productRatingRateLabel,
@@ -70,6 +89,7 @@ final class ProductDetailView: UIView {
         button.addTarget(self, action: #selector(didTapAddToCartButton), for: .touchUpInside)
         button.backgroundColor = UIColor(named: "primary")
         button.tintColor = .white
+        button.accessibilityIdentifier = "productDetail.addToCartButton"
         return button
     }()
 

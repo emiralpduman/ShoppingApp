@@ -26,7 +26,11 @@ final class ProductsView: UIView {
         flowlayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         return flowlayout
     }()
-    lazy var productsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    lazy var productsCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.accessibilityIdentifier = "products.collectionView"
+        return collectionView
+    }()
 
     // MARK: - Init
 

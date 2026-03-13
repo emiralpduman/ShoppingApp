@@ -32,9 +32,21 @@ class ProfileView: UIView {
         }
     }
 
-    private var userNameValueLabel = UILabel()
-    private var emailAddressValueLabel = UILabel()
-    private var cartTotalValueLabel = UILabel()
+    private var userNameValueLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "profile.usernameValue"
+        return label
+    }()
+    private var emailAddressValueLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "profile.emailValue"
+        return label
+    }()
+    private var cartTotalValueLabel: UILabel = {
+        let label = UILabel()
+        label.accessibilityIdentifier = "profile.cartTotalValue"
+        return label
+    }()
 
     private lazy var userNameKeyLabel: UILabel = {
        let label = UILabel()
@@ -87,6 +99,7 @@ class ProfileView: UIView {
         button.backgroundColor = UIColor(named: "primary")
         button.tintColor = .white
         button.addTarget(self, action: #selector(didTapSignOutButton), for: .touchDown)
+        button.accessibilityIdentifier = "profile.signOutButton"
         return button
     }()
 

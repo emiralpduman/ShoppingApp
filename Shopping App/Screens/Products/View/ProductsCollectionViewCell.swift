@@ -32,16 +32,19 @@ final class ProductsCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = cornerRadius
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.accessibilityIdentifier = "productCell.image"
         return imageView
     }()
     private lazy var productNameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textColor = .white
+        nameLabel.accessibilityIdentifier = "productCell.name"
         return nameLabel
     }()
     private lazy var productPriceLabel: UILabel = {
         let priceLabel = UILabel()
         priceLabel.textColor = .white
+        priceLabel.accessibilityIdentifier = "productCell.price"
         return priceLabel
     }()
     private lazy var gradientLayer: CAGradientLayer = {

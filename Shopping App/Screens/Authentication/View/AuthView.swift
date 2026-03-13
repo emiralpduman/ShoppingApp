@@ -37,6 +37,7 @@ final class AuthView: UIView {
         textfield.isHidden = true
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
+        textfield.accessibilityIdentifier = "auth.usernameField"
         return textfield
     }()
     lazy var emailTextField: UITextField = {
@@ -44,6 +45,7 @@ final class AuthView: UIView {
         textfield.placeholder = "Please enter your e-mail"
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
+        textfield.accessibilityIdentifier = "auth.emailField"
         return textfield
     }()
     lazy var passwordTextField: UITextField = {
@@ -52,6 +54,7 @@ final class AuthView: UIView {
         textfield.isSecureTextEntry = true
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
+        textfield.accessibilityIdentifier = "auth.passwordField"
         return textfield
     }()
     lazy var passwordRepeatTextField: UITextField = {
@@ -61,12 +64,14 @@ final class AuthView: UIView {
         textfield.isHidden = true
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
+        textfield.accessibilityIdentifier = "auth.passwordRepeatField"
         return textfield
     }()
     private lazy var signingTypeSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Sign In", "Sign Up"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(didSegmentedControlValueChange), for: .valueChanged)
+        segmentedControl.accessibilityIdentifier = "auth.segmentedControl"
         return segmentedControl
     }()
     private lazy var textFieldsStackView: UIStackView = {
@@ -83,6 +88,7 @@ final class AuthView: UIView {
         button.backgroundColor = UIColor(named: "primary")
         button.tintColor = .white
         button.addTarget(self, action: #selector(didButtonTouchDown), for: .touchDown)
+        button.accessibilityIdentifier = "auth.signButton"
         return button
     }()
 
@@ -94,6 +100,7 @@ final class AuthView: UIView {
             indicator = UIActivityIndicatorView(style: .gray)
         }
         indicator.hidesWhenStopped = true
+        indicator.accessibilityIdentifier = "auth.activityIndicator"
         return indicator
     }()
 

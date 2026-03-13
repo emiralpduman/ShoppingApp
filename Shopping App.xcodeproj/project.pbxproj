@@ -54,6 +54,10 @@
 		81F7EB99462BB0EA9C06DDAF /* OrderEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57444D33A14AB87F2D33F2A4 /* OrderEntityTests.swift */; };
 		9A5534F0FBD0F48DC8039407 /* ProductDecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AB69A0346AF4BB0E8497C /* ProductDecodableTests.swift */; };
 		9F014E6D123352818E20F51C /* products.json in Resources */ = {isa = PBXBuildFile; fileRef = F3757828291537AB0017B045 /* products.json */; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E1A1 /* CartViewModelTests.swift */; };
+		A1B2C3D4E5F6A7B8C9D0E2F2 /* ProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E2A1 /* ProductsViewModelTests.swift */; };
+		A1B2C3D4E5F6A7B8C9D0E3F2 /* LaunchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E3A1 /* LaunchViewModelTests.swift */; };
+		A1B2C3D4E5F6A7B8C9D0E4F2 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6A7B8C9D0E4A1 /* AuthViewModelTests.swift */; };
 		7CD257C691BA740795E98064 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8706A08AF8701F3F52437BBE /* Realm */; };
 		B47F6AD8A332DEBE9B9E8FA8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0E92E1499C9FDA1BAB842B1F /* RealmSwift */; };
 /* End PBXBuildFile section */
@@ -114,6 +118,10 @@
 		528474AB4504A6407980797A /* UserEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityTests.swift; sourceTree = "<group>"; };
 		57444D33A14AB87F2D33F2A4 /* OrderEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEntityTests.swift; sourceTree = "<group>"; };
 		623AB69A0346AF4BB0E8497C /* ProductDecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDecodableTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E1A1 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E2A1 /* ProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModelTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E3A1 /* LaunchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModelTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6A7B8C9D0E4A1 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,8 +508,20 @@
 			children = (
 				9D73DCE3EEF1974EEF72D123 /* Helpers */,
 				FFA47D4A697917ACFCF6A350 /* Models */,
+				A1B2C3D4E5F6A7B8C9D0E0B1 /* ViewModels */,
 			);
 			path = "Shopping App Tests";
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F6A7B8C9D0E0B1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6A7B8C9D0E1A1 /* CartViewModelTests.swift */,
+				A1B2C3D4E5F6A7B8C9D0E2A1 /* ProductsViewModelTests.swift */,
+				A1B2C3D4E5F6A7B8C9D0E3A1 /* LaunchViewModelTests.swift */,
+				A1B2C3D4E5F6A7B8C9D0E4A1 /* AuthViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -671,6 +691,10 @@
 				0328034C8AAAB1E821A98AE4 /* UserEntityTests.swift in Sources */,
 				81F7EB99462BB0EA9C06DDAF /* OrderEntityTests.swift in Sources */,
 				9A5534F0FBD0F48DC8039407 /* ProductDecodableTests.swift in Sources */,
+				A1B2C3D4E5F6A7B8C9D0E1F2 /* CartViewModelTests.swift in Sources */,
+				A1B2C3D4E5F6A7B8C9D0E2F2 /* ProductsViewModelTests.swift in Sources */,
+				A1B2C3D4E5F6A7B8C9D0E3F2 /* LaunchViewModelTests.swift in Sources */,
+				A1B2C3D4E5F6A7B8C9D0E4F2 /* AuthViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,18 +24,21 @@ class CartView: UIView {
     // MARK: - Subviews
     lazy var ordersTableView: UITableView = {
         let tableView = UITableView()
+        tableView.accessibilityIdentifier = "cart.tableView"
         return tableView
     }()
 
     lazy var totalLabel: UILabel = {
        let label = UILabel()
         label.text = "Total:"
+        label.accessibilityIdentifier = "cart.totalLabel"
         return label
     }()
 
     lazy var totalNumberLabel: UILabel = {
         let label = UILabel()
         label.text = String(cartTotal)
+        label.accessibilityIdentifier = "cart.totalNumber"
         return label
     }()
 
@@ -52,6 +55,7 @@ class CartView: UIView {
         button.backgroundColor = UIColor(named: "primary")
         button.tintColor = .white
         button.addTarget(self, action: #selector(didTapPayButton), for: .touchDown)
+        button.accessibilityIdentifier = "cart.payButton"
         return button
     }()
 

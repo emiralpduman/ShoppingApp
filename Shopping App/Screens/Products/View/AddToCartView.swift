@@ -32,11 +32,13 @@ final class AddToCartView: UIView {
         let stepper = UIStepper()
         stepper.minimumValue = 0
         stepper.addTarget(self, action: #selector(didTapQuantityStepper), for: .valueChanged)
+        stepper.accessibilityIdentifier = "addToCart.stepper"
         return stepper
     }()
     private lazy var quantityLabel: UILabel = {
        let label = UILabel()
         label.text = "Amount: \(quantity)"
+        label.accessibilityIdentifier = "addToCart.quantityLabel"
         return label
     }()
     private lazy var quantityStackView: UIStackView = {
@@ -54,6 +56,7 @@ final class AddToCartView: UIView {
         button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
         button.backgroundColor = UIColor(named: "primary")
         button.tintColor = .white
+        button.accessibilityIdentifier = "addToCart.addButton"
         return button
     }()
 
