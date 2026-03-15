@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
 class CartViewModel: RealmReachable {
+    var injectedRealm: Realm?
+
     lazy var orders: [OrderEntity] = {
         let orders = realm.objects(OrderEntity.self)
         return Array(orders)

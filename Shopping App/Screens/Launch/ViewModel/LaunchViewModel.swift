@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Moya
+import RealmSwift
 import ShoppingAppAPI
 
 protocol LaunchViewModelDelegate: AnyObject {
@@ -16,14 +18,20 @@ protocol LaunchViewModelDelegate: AnyObject {
 
 class LaunchViewModel: RealmReachable {
     // MARK: - Properties
+    var injectedRealm: Realm?
     weak var delegate: LaunchViewModelDelegate?
     private var products: [Product] = []
+    private let provider: MoyaProvider<FakeStoreService>
+
+    init(provider: MoyaProvider<FakeStoreService> = fakeStoreAPI) {
+        self.provider = provider
+    }
 
     // MARK: - Methods
     func fetchProducts() {
         delegate?.willFetchProducts()
 
-        fakeStoreAPI.request(.getProducts) { result in
+        provider.request(.getProducts) { result in
             switch result {
             case .failure(let error):
                 self.delegate?.didErrorOccur(error)

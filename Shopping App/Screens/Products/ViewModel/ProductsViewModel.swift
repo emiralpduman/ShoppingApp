@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 import ShoppingAppAPI
 
 protocol ProductsViewModelDelegate: AnyObject {
@@ -14,10 +15,12 @@ protocol ProductsViewModelDelegate: AnyObject {
 }
 
 final class ProductsViewModel: RealmReachable {
+    var injectedRealm: Realm?
     var products: [ProductEntity] = []
     weak var delegate: ProductsViewModelDelegate?
 
-    init() {
-        products = realm.objects(ProductEntity.self).map { $0 }
+    init(realm: Realm? = nil) {
+        self.injectedRealm = realm
+        products = self.realm.objects(ProductEntity.self).map { $0 }
     }
 }

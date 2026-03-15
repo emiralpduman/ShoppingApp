@@ -6,12 +6,18 @@
 //
 
 import Foundation
-import FirebaseAuth
+import RealmSwift
 
 class ProfileViewModel: RealmReachable {
+    var injectedRealm: Realm?
+    private let authService: AuthServiceProtocol
+
+    init(authService: AuthServiceProtocol = FirebaseAuthService()) {
+        self.authService = authService
+    }
+
     lazy var user: UserEntity = {
-        let authUser = Auth.auth().currentUser
-        let userKey = authUser?.uid
+        let userKey = authService.currentUserUid
 
         guard let userInDb = self.realm.object(ofType: UserEntity.self, forPrimaryKey: userKey) else {
             fatalError("User not found in database")

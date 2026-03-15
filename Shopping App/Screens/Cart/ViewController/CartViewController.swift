@@ -7,8 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import RealmSwift
 
 class CartViewController: UIViewController, RealmReachable {
+    var injectedRealm: Realm?
     private let viewModel = CartViewModel()
 
     // MARK: - Properties

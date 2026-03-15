@@ -7,8 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import RealmSwift
 
 final class ProductDetailViewController: UIViewController, RealmReachable {
+    var injectedRealm: Realm?
 
     // MARK: - Properties
     private var mainView = ProductDetailView()

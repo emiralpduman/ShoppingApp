@@ -8,10 +8,16 @@
 import Foundation
 import RealmSwift
 
-protocol RealmReachable { }
+protocol RealmReachable: AnyObject {
+    var injectedRealm: Realm? { get set }
+}
 
 extension RealmReachable {
     var realm: Realm {
+        if let injected = injectedRealm {
+            return injected
+        }
+
         let config = Realm.Configuration(
           schemaVersion: 0,
           deleteRealmIfMigrationNeeded: true

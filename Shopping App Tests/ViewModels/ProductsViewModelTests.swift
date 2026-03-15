@@ -75,6 +75,33 @@ final class ProductsViewModelTests: XCTestCase {
 
         XCTAssertNil(viewModel.delegate)
     }
+
+    // MARK: - Realm Integration
+
+    func test_init_loadsProductsFromRealm() {
+        let realm = InMemoryRealmHelper.makeRealm()
+        // swiftlint:disable:next force_try
+        try! realm.write {
+            let product1 = makeProduct(id: 1, title: "From Realm")
+            let product2 = makeProduct(id: 2, title: "Also From Realm")
+            realm.add(product1)
+            realm.add(product2)
+        }
+
+        let viewModel = ProductsViewModel(realm: realm)
+
+        XCTAssertEqual(viewModel.products.count, 2)
+        XCTAssertTrue(viewModel.products.contains(where: { $0.title == "From Realm" }))
+        XCTAssertTrue(viewModel.products.contains(where: { $0.title == "Also From Realm" }))
+    }
+
+    func test_init_emptyRealm_productsIsEmpty() {
+        let realm = InMemoryRealmHelper.makeRealm()
+
+        let viewModel = ProductsViewModel(realm: realm)
+
+        XCTAssertTrue(viewModel.products.isEmpty)
+    }
 }
 
 // MARK: - Mock Delegate

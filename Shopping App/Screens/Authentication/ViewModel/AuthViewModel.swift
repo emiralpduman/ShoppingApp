@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 import RealmSwift
 
 protocol AuthViewModelDelegate: AnyObject {
@@ -17,11 +16,18 @@ protocol AuthViewModelDelegate: AnyObject {
 }
 
 final class AuthViewModel: RealmReachable {
+    var injectedRealm: Realm?
     weak var delegate: AuthViewModelDelegate?
+    private let authService: AuthServiceProtocol
+
+    init(authService: AuthServiceProtocol = FirebaseAuthService()) {
+        self.authService = authService
+    }
 
     func signIn(email: String, password: String) {
         delegate?.willRequestService()
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+        authService.signIn(email: email, password: password) { [weak self] uid, error in
+            guard let self = self else { return }
             if let error = error {
                 self.delegate?.didErrorOccur(error: error)
             } else {
@@ -31,11 +37,9 @@ final class AuthViewModel: RealmReachable {
 
                 if isNotInDatabase {
                     let user = UserEntity()
-                    if let currentUser = Auth.auth().currentUser {
-                        user.emailAddress = currentUser.email ?? ""
-                        user._id = currentUser.uid
-                        user.userName = currentUser.email ?? ""
-                    }
+                    user.emailAddress = self.authService.currentUserEmail ?? email
+                    user._id = uid ?? ""
+                    user.userName = self.authService.currentUserEmail ?? email
 
                     do {
                         try self.realm.write {
@@ -53,14 +57,15 @@ final class AuthViewModel: RealmReachable {
 
     func signUp(email: String, password: String, userName: String) {
         delegate?.willRequestService()
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        authService.signUp(email: email, password: password) { [weak self] uid, error in
+            guard let self = self else { return }
             if let error = error {
                 self.delegate?.didErrorOccur(error: error)
             } else {
                 self.delegate?.didSignUpSuccesfully()
             }
 
-            guard let uid = authResult?.user.uid else {
+            guard let uid = uid else {
                 self.delegate?.didErrorOccur(error: AuthViewModelError.noUid)
                 return
             }

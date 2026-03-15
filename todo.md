@@ -10,6 +10,6 @@
 - [x] CI workflow'a Codecov coverage upload entegrasyonu (codecov-action@v5, app+api flag'leri)
 
 ## Yapılacak
-- [ ] CI pipeline debug — fail eden adımları tespit et ve düzelt
-- [ ] %60+ coverage hedefi, ideal %70+ (UI testleri ve unit testler ile hedefe ulaşılacak)
-- [ ] GitHub repo'ya CODECOV_TOKEN secret eklenmesi (Settings → Secrets → Actions)
+- [x] CI pipeline debug — Firebase crash fix, UI test skip, adımlar bağımsız çalışıyor
+- [ ] %60+ coverage hedefi, ideal %70+ (mevcut: %21 — ViewController/View testleri ile hedefe ulaşılacak)
+- [x] GitHub repo'ya CODECOV_TOKEN secret eklenmesi (Settings → Secrets → Actions)
