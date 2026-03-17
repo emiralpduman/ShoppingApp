@@ -906,7 +906,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# SwiftLint - Run Script Build Phase\n# Finds SwiftLint from SPM artifacts or system PATH\n\nSWIFTLINT=$(find \"${BUILD_DIR%Build/*}SourcePackages/artifacts\" -name \"swiftlint\" -type f -perm +111 2>/dev/null | head -1)\n\nif [ -z \"$SWIFTLINT\" ]; then\n    SWIFTLINT=$(command -v swiftlint)\nfi\n\nif [ -z \"$SWIFTLINT\" ]; then\n    echo \"warning: SwiftLint not found. Resolve SPM packages or install via Homebrew.\"\n    exit 0\nfi\n\n\"$SWIFTLINT\" lint --config \"${SRCROOT}/.swiftlint.yml\"\n";
+			shellScript = "# SwiftLint - Run Script Build Phase\n# Finds SwiftLint from SPM artifacts or system PATH\n\nSWIFTLINT=$(find \"${BUILD_DIR%Build/*}SourcePackages/artifacts\" -name \"swiftlint\" -type f -perm +111 2>/dev/null | head -1)\n\nif [ -z \"$SWIFTLINT\" ]; then\n    SWIFTLINT=$(command -v swiftlint)\nfi\n\nif [ -z \"$SWIFTLINT\" ]; then\n    echo \"warning: SwiftLint not found. Resolve SPM packages or install via Homebrew.\"\n    exit 0\nfi\n\n\"$SWIFTLINT\" lint --config \"${SRCROOT}/.swiftlint.yml\" --strict\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
