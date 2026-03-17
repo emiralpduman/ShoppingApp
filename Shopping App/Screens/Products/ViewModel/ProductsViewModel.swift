@@ -16,11 +16,32 @@ protocol ProductsViewModelDelegate: AnyObject {
 
 final class ProductsViewModel: RealmReachable {
     var injectedRealm: Realm?
-    var products: [ProductEntity] = []
     weak var delegate: ProductsViewModelDelegate?
+
+    private(set) var allProducts: [ProductEntity] = []
+    private(set) var products: [ProductEntity] = []
+    private(set) var categories: [String] = []
+
+    private(set) var currentSearchText: String = ""
+    private(set) var selectedCategory: String? = nil
 
     init(realm: Realm? = nil) {
         self.injectedRealm = realm
-        products = self.realm.objects(ProductEntity.self).map { $0 }
+        allProducts = self.realm.objects(ProductEntity.self).map { $0 }
+        products = allProducts
+        categories = ["All"] + Array(Set(allProducts.map { $0.category })).sorted()
+    }
+
+    func filterProducts(searchText: String, category: String?) {
+        currentSearchText = searchText
+        selectedCategory = category
+        products = allProducts.filter { product in
+            let matchesSearch = searchText.isEmpty ||
+                product.title.localizedCaseInsensitiveContains(searchText)
+            let matchesCategory = category == nil || category == "All" ||
+                product.category == category
+            return matchesSearch && matchesCategory
+        }
+        delegate?.didFetchProducts()
     }
 }

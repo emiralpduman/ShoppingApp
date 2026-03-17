@@ -30,6 +30,12 @@ final class ProductsViewController: UIViewController {
         title = "Products"
         view = mainView
         mainView.setCollectionViewDelegate(self, andDataSource: self)
+        mainView.searchBar.delegate = self
+        mainView.configureCategoryButtons(viewModel.categories)
+        mainView.onCategorySelected = { [weak self] category in
+            guard let self else { return }
+            viewModel.filterProducts(searchText: viewModel.currentSearchText, category: category)
+        }
     }
 }
 
@@ -55,6 +61,16 @@ extension ProductsViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = ProductDetailViewController(product: viewModel.products[indexPath.row])
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension ProductsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterProducts(searchText: searchText, category: viewModel.selectedCategory)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.filterProducts(searchText: "", category: viewModel.selectedCategory)
     }
 }
 

@@ -22,38 +22,77 @@ final class ProductsViewModelTests: XCTestCase {
         return product
     }
 
-    // MARK: - Products Array
-
-    func test_productsArray_canBeSetDirectly() {
-        let viewModel = ProductsViewModel()
-        let product = makeProduct()
-
-        viewModel.products = [product]
-
-        XCTAssertEqual(viewModel.products.count, 1)
-        XCTAssertEqual(viewModel.products.first?.title, "Test Product")
+    private func makeRealm(with products: [ProductEntity]) -> Realm {
+        let realm = InMemoryRealmHelper.makeRealm()
+        // swiftlint:disable:next force_try
+        try! realm.write {
+            products.forEach { realm.add($0) }
+        }
+        return realm
     }
 
-    func test_emptyProducts_hasZeroCount() {
-        let viewModel = ProductsViewModel()
+    // MARK: - Products Array
 
-        viewModel.products = []
+    func test_init_loadsProductsFromRealm() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "From Realm"),
+            makeProduct(id: 2, title: "Also From Realm")
+        ])
+
+        let viewModel = ProductsViewModel(realm: realm)
+
+        XCTAssertEqual(viewModel.products.count, 2)
+        XCTAssertTrue(viewModel.products.contains(where: { $0.title == "From Realm" }))
+        XCTAssertTrue(viewModel.products.contains(where: { $0.title == "Also From Realm" }))
+    }
+
+    func test_init_emptyRealm_productsIsEmpty() {
+        let realm = InMemoryRealmHelper.makeRealm()
+
+        let viewModel = ProductsViewModel(realm: realm)
 
         XCTAssertTrue(viewModel.products.isEmpty)
     }
 
-    func test_multipleProducts_preservesOrder() {
-        let viewModel = ProductsViewModel()
-        let product1 = makeProduct(id: 1, title: "First")
-        let product2 = makeProduct(id: 2, title: "Second")
-        let product3 = makeProduct(id: 3, title: "Third")
+    func test_init_allProductsMatchesProducts() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "First"),
+            makeProduct(id: 2, title: "Second"),
+            makeProduct(id: 3, title: "Third")
+        ])
 
-        viewModel.products = [product1, product2, product3]
+        let viewModel = ProductsViewModel(realm: realm)
 
-        XCTAssertEqual(viewModel.products.count, 3)
-        XCTAssertEqual(viewModel.products[0].title, "First")
-        XCTAssertEqual(viewModel.products[1].title, "Second")
-        XCTAssertEqual(viewModel.products[2].title, "Third")
+        XCTAssertEqual(viewModel.allProducts.count, 3)
+        XCTAssertEqual(viewModel.products.count, viewModel.allProducts.count)
+    }
+
+    // MARK: - Categories
+
+    func test_init_categoriesIncludesAll() {
+        let realm = makeRealm(with: [makeProduct(category: "electronics")])
+
+        let viewModel = ProductsViewModel(realm: realm)
+
+        XCTAssertTrue(viewModel.categories.contains("All"))
+    }
+
+    func test_init_categoriesAreDeduplicatedAndSorted() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, category: "clothing"),
+            makeProduct(id: 2, category: "electronics"),
+            makeProduct(id: 3, category: "clothing")
+        ])
+
+        let viewModel = ProductsViewModel(realm: realm)
+
+        XCTAssertEqual(viewModel.categories, ["All", "clothing", "electronics"])
+    }
+
+    func test_init_emptyRealm_categoriesOnlyContainsAll() {
+        let viewModel = ProductsViewModel(realm: InMemoryRealmHelper.makeRealm())
+
+        XCTAssertEqual(viewModel.categories, ["All"])
     }
 
     // MARK: - Delegate
@@ -76,31 +115,155 @@ final class ProductsViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.delegate)
     }
 
-    // MARK: - Realm Integration
+    // MARK: - filterProducts: search text
 
-    func test_init_loadsProductsFromRealm() {
-        let realm = InMemoryRealmHelper.makeRealm()
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            let product1 = makeProduct(id: 1, title: "From Realm")
-            let product2 = makeProduct(id: 2, title: "Also From Realm")
-            realm.add(product1)
-            realm.add(product2)
-        }
-
+    func test_filterProducts_emptySearchText_returnsAll() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "Apple"),
+            makeProduct(id: 2, title: "Banana")
+        ])
         let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "", category: nil)
 
         XCTAssertEqual(viewModel.products.count, 2)
-        XCTAssertTrue(viewModel.products.contains(where: { $0.title == "From Realm" }))
-        XCTAssertTrue(viewModel.products.contains(where: { $0.title == "Also From Realm" }))
     }
 
-    func test_init_emptyRealm_productsIsEmpty() {
-        let realm = InMemoryRealmHelper.makeRealm()
-
+    func test_filterProducts_matchingSearchText_returnsMatchingProducts() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "Apple Watch"),
+            makeProduct(id: 2, title: "Banana Phone"),
+            makeProduct(id: 3, title: "Apple iPhone")
+        ])
         let viewModel = ProductsViewModel(realm: realm)
 
+        viewModel.filterProducts(searchText: "Apple", category: nil)
+
+        XCTAssertEqual(viewModel.products.count, 2)
+        XCTAssertTrue(viewModel.products.allSatisfy { $0.title.contains("Apple") })
+    }
+
+    func test_filterProducts_searchIsCaseInsensitive() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "Apple Watch"),
+            makeProduct(id: 2, title: "Banana")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "apple", category: nil)
+
+        XCTAssertEqual(viewModel.products.count, 1)
+        XCTAssertEqual(viewModel.products.first?.title, "Apple Watch")
+    }
+
+    func test_filterProducts_noMatch_returnsEmpty() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "Apple"),
+            makeProduct(id: 2, title: "Banana")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "xyz123", category: nil)
+
         XCTAssertTrue(viewModel.products.isEmpty)
+    }
+
+    // MARK: - filterProducts: category
+
+    func test_filterProducts_categoryAll_returnsAll() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, category: "electronics"),
+            makeProduct(id: 2, category: "clothing")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "", category: "All")
+
+        XCTAssertEqual(viewModel.products.count, 2)
+    }
+
+    func test_filterProducts_nilCategory_returnsAll() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, category: "electronics"),
+            makeProduct(id: 2, category: "clothing")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "", category: nil)
+
+        XCTAssertEqual(viewModel.products.count, 2)
+    }
+
+    func test_filterProducts_specificCategory_returnsOnlyMatching() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, category: "electronics"),
+            makeProduct(id: 2, category: "clothing"),
+            makeProduct(id: 3, category: "electronics")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "", category: "electronics")
+
+        XCTAssertEqual(viewModel.products.count, 2)
+        XCTAssertTrue(viewModel.products.allSatisfy { $0.category == "electronics" })
+    }
+
+    // MARK: - filterProducts: combined
+
+    func test_filterProducts_searchAndCategory_appliesBothFilters() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "Apple Watch", category: "electronics"),
+            makeProduct(id: 2, title: "Apple Shirt", category: "clothing"),
+            makeProduct(id: 3, title: "Banana Phone", category: "electronics")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "Apple", category: "electronics")
+
+        XCTAssertEqual(viewModel.products.count, 1)
+        XCTAssertEqual(viewModel.products.first?.title, "Apple Watch")
+    }
+
+    // MARK: - filterProducts: state
+
+    func test_filterProducts_updatesCurrentSearchText() {
+        let viewModel = ProductsViewModel(realm: InMemoryRealmHelper.makeRealm())
+
+        viewModel.filterProducts(searchText: "hello", category: nil)
+
+        XCTAssertEqual(viewModel.currentSearchText, "hello")
+    }
+
+    func test_filterProducts_updatesSelectedCategory() {
+        let viewModel = ProductsViewModel(realm: InMemoryRealmHelper.makeRealm())
+
+        viewModel.filterProducts(searchText: "", category: "electronics")
+
+        XCTAssertEqual(viewModel.selectedCategory, "electronics")
+    }
+
+    func test_filterProducts_callsDelegate() {
+        let realm = InMemoryRealmHelper.makeRealm()
+        let viewModel = ProductsViewModel(realm: realm)
+        let delegate = MockProductsDelegate()
+        viewModel.delegate = delegate
+
+        viewModel.filterProducts(searchText: "", category: nil)
+
+        XCTAssertTrue(delegate.didFetchProductsCalled)
+    }
+
+    func test_filterProducts_doesNotMutateAllProducts() {
+        let realm = makeRealm(with: [
+            makeProduct(id: 1, title: "Apple"),
+            makeProduct(id: 2, title: "Banana")
+        ])
+        let viewModel = ProductsViewModel(realm: realm)
+
+        viewModel.filterProducts(searchText: "Apple", category: nil)
+
+        XCTAssertEqual(viewModel.allProducts.count, 2)
+        XCTAssertEqual(viewModel.products.count, 1)
     }
 }
 

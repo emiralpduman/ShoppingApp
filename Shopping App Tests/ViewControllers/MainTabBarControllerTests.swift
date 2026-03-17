@@ -15,8 +15,8 @@ final class MainTabBarControllerTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_viewDidLoad_setsThreeTabs() {
-        XCTAssertEqual(sut.viewControllers?.count, 3)
+    func test_viewDidLoad_setsTwoTabs() {
+        XCTAssertEqual(sut.viewControllers?.count, 2)
     }
 
     func test_viewDidLoad_hidesBackButton() {
@@ -38,7 +38,7 @@ final class MainTabBarControllerTests: XCTestCase {
 
     func test_tabBarItems_haveAccessibilityIds() {
         let ids = sut.viewControllers?.map { $0.tabBarItem.accessibilityIdentifier }
-        XCTAssertEqual(ids, ["tabBar.products", "tabBar.search", "tabBar.profile"])
+        XCTAssertEqual(ids, ["tabBar.products", "tabBar.profile"])
     }
 
     func test_firstTab_isProductsViewController() {
