@@ -11,5 +11,5 @@
 
 ## Yapılacak
 - [x] CI pipeline debug — Firebase crash fix, UI test skip, adımlar bağımsız çalışıyor
-- [ ] %60+ coverage hedefi, ideal %70+ (mevcut: %21 — ViewController/View testleri ile hedefe ulaşılacak)
+- [x] %60+ coverage hedefi, ideal %70+ (ulaşıldı: %73, 204 test — DI refactoring + View/VC/VM testleri)
 - [x] GitHub repo'ya CODECOV_TOKEN secret eklenmesi (Settings → Secrets → Actions)

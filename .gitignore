@@ -8,6 +8,7 @@ CLAUDE.md
 
 # Firebase
 **/GoogleService-Info.plist
+firebase-debug.log
 
 # Xcode
 #
@@ -15,6 +16,9 @@ CLAUDE.md
 
 ## User settings
 xcuserdata/
+
+## Auto-generated workspace metadata (SPM sub-projects)
+ShoppingAppAPI/ShoppingAppAPI.xcodeproj/project.xcworkspace/
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
