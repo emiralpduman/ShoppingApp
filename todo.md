@@ -13,3 +13,4 @@
 - [x] CI pipeline debug — Firebase crash fix, UI test skip, adımlar bağımsız çalışıyor
 - [x] %60+ coverage hedefi, ideal %70+ (ulaşıldı: %73, 204 test — DI refactoring + View/VC/VM testleri)
 - [x] GitHub repo'ya CODECOV_TOKEN secret eklenmesi (Settings → Secrets → Actions)
+- [x] Node.js 20 deprecation: `actions/checkout@v6` ile güncellendi (Node.js 24 destekli)
