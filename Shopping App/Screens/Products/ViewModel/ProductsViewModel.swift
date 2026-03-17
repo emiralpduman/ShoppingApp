@@ -23,7 +23,7 @@ final class ProductsViewModel: RealmReachable {
     private(set) var categories: [String] = []
 
     private(set) var currentSearchText: String = ""
-    private(set) var selectedCategory: String? = nil
+    private(set) var selectedCategory: String?
 
     init(realm: Realm? = nil) {
         self.injectedRealm = realm
